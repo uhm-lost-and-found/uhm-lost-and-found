@@ -26,3 +26,27 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+.action-btn {
+  background-color: #2c4230;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  width: 203px;
+  text-align: center;
+}
+
+.action-btn:hover {
+  scale: 1.05;
+  color: white;
+}
+
+.action-btn:active {
+  scale: 0.95;
+}
