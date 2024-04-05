@@ -13,34 +13,36 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">
-          <h2>meteor-application-template-react</h2>
+        <Navbar.Brand as={NavLink} to="/" className='mx-auto'>
+          <h2>LOST AND FOUND</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
-            {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
-            ]) : ''}
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
-            ) : ''}
-          </Nav>
+        <Navbar.Collapse id="basic-navbar-nav ">
+          <div className="justify-content-center flex-grow-1 pe-3">
+            <Nav className='mx-auto justify-content-center'>
+              <Nav.Link id="your-item-id" as={NavLink} to="/" key="your-key">
+                Home
+              </Nav.Link>
+              <Nav.Link id="your-item-id" as={NavLink} to="/your-link-path" key="your-key">
+                Lost Items
+              </Nav.Link>
+              {currentUser ? ([
+                <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
+                <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
+              ]) : ''}
+              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+              ) : ''}
+            </Nav>
+          </div>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login">
+              <NavDropdown id="login-dropdown" title={<PersonFill />}>
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
                   <PersonFill />
-                  Sign
-                  in
-                </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
-                  <PersonPlusFill />
-                  Sign
-                  up
+                  Login
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
