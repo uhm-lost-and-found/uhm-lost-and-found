@@ -16,44 +16,31 @@ const NavBar = () => {
     <Navbar expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/" className='mx-auto'>
-          <h2>LOST AND FOUND</h2>
+          <h4>LOST AND FOUND</h4>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">
-          <div className="justify-content-center flex-grow-1 pe-3">
+          <div className="flex-grow-1 pe-3">
             <Nav className='mx-auto justify-content-center'>
-              <Nav.Link id="your-item-id" as={NavLink} to="/" key="your-key">
+              <Nav.Link className='mx-lg-2' id="your-item-id" as={NavLink} to="/" key="home">
                 Home
               </Nav.Link>
-              <Nav.Link id="your-item-id" as={NavLink} to="/your-link-path" key="your-key">
+              <Nav.Link className='mx-lg-2' id="list-stuff-nav" as={NavLink} to="/list" key="list">
                 Lost Items
               </Nav.Link>
-              {currentUser ? ([
-                <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
-                <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
-              ]) : ''}
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-                <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+                [
+                  <Nav.Link className='mx-lg-2' id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Item</Nav.Link>,
+                  <Nav.Link className='mx-lg-2' id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Inbox</Nav.Link>
+                ]
               ) : ''}
             </Nav>
           </div>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title={<PersonFill />}>
-                <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
-                  <PersonFill />
-                  Login
-                </NavDropdown.Item>
-              </NavDropdown>
+              <a href="/signin" className='action-btn'>Sign In</a>
             ) : (
-              <NavDropdown id="navbar-current-user" title={currentUser}>
-                <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
-                  <BoxArrowRight />
-                  {' '}
-                  Sign
-                  out
-                </NavDropdown.Item>
-              </NavDropdown>
+              <a href="/signout" className='action-btn'>Sign Out</a>
             )}
           </Nav>
         </Navbar.Collapse>
