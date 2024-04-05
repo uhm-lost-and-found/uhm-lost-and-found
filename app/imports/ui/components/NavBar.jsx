@@ -23,24 +23,24 @@ const NavBar = () => {
           <div className="flex-grow-1 pe-3">
             <Nav className='mx-auto justify-content-center'>
               <Nav.Link className='mx-lg-2' id="your-item-id" as={NavLink} to="/" key="home">
-                Home
+                HOME
               </Nav.Link>
               <Nav.Link className='mx-lg-2' id="list-stuff-nav" as={NavLink} to="/list" key="list">
-                Lost Items
+                LOST ITEMS
               </Nav.Link>
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
                 [
-                  <Nav.Link className='mx-lg-2' id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Item</Nav.Link>,
-                  <Nav.Link className='mx-lg-2' id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Inbox</Nav.Link>
+                  <Nav.Link className='mx-lg-2' id="add-stuff-nav" as={NavLink} to="/add" key="add">ADD ITEM</Nav.Link>,
+                  <Nav.Link className='mx-lg-2' id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">INBOX</Nav.Link>
                 ]
               ) : ''}
             </Nav>
           </div>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <a href="/signin" className='action-btn'>Sign In</a>
+              <a href="/signin" className='action-btn'>SIGN IN</a>
             ) : (
-              <a href="/signout" className='action-btn'>Sign Out</a>
+              <a href="/signout" className='action-btn'>SIGN OUT</a>
             )}
           </Nav>
         </Navbar.Collapse>
