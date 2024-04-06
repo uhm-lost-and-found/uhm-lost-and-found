@@ -12,8 +12,8 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar expand="lg">
-      <Container>
+    <Navbar expand="lg" style={{ color:"white" }} >
+      <Container className="">
         <Navbar.Brand as={NavLink} to="/" className="mx-auto">
           <h4>LOST AND FOUND</h4>
         </Navbar.Brand>
