@@ -1,5 +1,4 @@
-/* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+/* Use Open Sans as the default sans serif font. */ @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -12,12 +11,12 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  font-family: 'Open Sans', sans-serif; /* Apply Open Sans font to the body */
 }
 
-#signin-page {
-  background: fixed center url("images/login-bg.jpeg") ;
-}
-
+/*#signin-page {*/
+/*  background: fixed center url("images/login-bg.jpeg") ;*/
+/*}*/
 
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
@@ -39,7 +38,6 @@ body {
   border: none;
   outline: none;
   border-radius: 20px;
-  font: 0.8rem;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
