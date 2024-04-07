@@ -5,6 +5,7 @@
 :root {
   --matr-navbar-bg: #ECECEC;
   --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-text-color: white;
 }
 
 /* Change bootstrap variable values.
@@ -12,6 +13,11 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+}
+
+body .navbar {
+  --bs-navbar-brand-color: var(--matr-navbar-text-color);
+  --bs-navbar-color: var(--matr-navbar-text-color);
 }
 
 /* Set the alert background on the signin and signup pages. */
