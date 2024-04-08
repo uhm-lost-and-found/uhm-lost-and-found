@@ -9,7 +9,8 @@ const LostObjectItem = ({ lostObject }) => (
       <Card.Title>{lostObject.name}</Card.Title>
       <Image src={lostObject.image} width={75} />
       <Card.Subtitle>{lostObject.dateFound}</Card.Subtitle>
-      <Card.Subtitle>{lostObject.location}</Card.Subtitle>
+      <Card.Subtitle>{lostObject.locationFound}</Card.Subtitle>
+      <Card.Subtitle>{lostObject.currentDepartment}</Card.Subtitle>
     </Card.Header>
   </Card>
 );
@@ -19,7 +20,8 @@ LostObjectItem.propTypes = {
   lostObject: PropTypes.shape({
     name: PropTypes.string,
     dateFound: PropTypes.instanceOf(Date),
-    location: PropTypes.string,
+    locationFound: PropTypes.string,
+    currentDepartment: PropTypes.string,
     image: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
