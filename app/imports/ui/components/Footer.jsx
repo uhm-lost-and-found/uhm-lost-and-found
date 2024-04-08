@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => (
   <footer className="footer">
-    <Container style={{ paddingLeft: '20px', paddingRight: '20px', marginTop: '10px' }}>
+    <Container style={{ paddingLeft: '20px', paddingRight: '20px', marginTop: '2px' }}>
       <Row className="align-items-start justify-content-center">
         <Col xs={12} md={3} className="mb-3 mb-md-0 text-start">
           <img
