@@ -26,10 +26,6 @@ body .navbar {
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-active-color: rgb(194, 194, 194);
   --bs-navbar-hover-color: var(--matr-navbar-text-color);
-  position: fixed; /* Fix the navbar at the top */
-  top: 0; /* Position it at the top */
-  width: 100%; /* Make it span the entire width */
-  z-index: 1000; /* Ensure it appears above other elements */
 }
 
 /* Set the alert background on the signin and signup pages. */
