@@ -4,7 +4,7 @@ import { Container, Image, Row, Col } from 'react-bootstrap';
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
   <>
-    <Image src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg" style={{ width: '100vw', filter: 'brightness(0.6)', position: 'absolute', zIndex: -1 }} />
+    <Image src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg" style={{ width: '100vw', height: '100vh', filter: 'brightness(0.6)', position: 'absolute', zIndex: -1, objectFit: 'cover' }} />
     <Container id="landing-page" fluid className="py-3">
       <Row className="align-middle text-center">
         <Col>
