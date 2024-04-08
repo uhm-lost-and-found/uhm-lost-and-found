@@ -42,7 +42,7 @@ body .navbar {
 }
 
 .action-btn {
-  background-color: #2c4230;
+  background-color: #00502f;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -82,4 +82,21 @@ body .navbar {
 
 .nav-link:hover::after {
   opacity: 1;
+}
+
+#home-button {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  font-size: 24px;
+  border: 2px solid white;
+  padding: 14px 50px;
+  border-radius: 50px;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+#home-button:hover {
+  background-color: white;
+  color: black;
 }
