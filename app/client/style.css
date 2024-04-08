@@ -1,5 +1,9 @@
-/* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700"); /* Set the body and html elements to have 100% width */
+
+body, html {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -22,7 +26,10 @@ body .navbar {
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-active-color: rgb(194, 194, 194);
   --bs-navbar-hover-color: var(--matr-navbar-text-color);
-
+  position: fixed; /* Fix the navbar at the top */
+  top: 0; /* Position it at the top */
+  width: 100%; /* Make it span the entire width */
+  z-index: 1000; /* Ensure it appears above other elements */
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -45,7 +52,6 @@ body .navbar {
   border: none;
   outline: none;
   border-radius: 20px;
-  font: 0.8rem;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
