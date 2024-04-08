@@ -41,7 +41,7 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Container id="signin-page" className="py-3">
+    <Container id="signin-page" className="py-3" fluid style={{ backgroundImage: "url('images/login-bg.jpeg')", backgroundSize: 'cover', minHeight: '100vh' }}>
       <Row className="justify-content-center">
         <Col xs={5} className="mt-2">
           <Col className="text-center">

@@ -22,7 +22,6 @@ body .navbar {
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-active-color: rgb(194, 194, 194);
   --bs-navbar-hover-color: var(--matr-navbar-text-color);
-
 }
 
 /* Set the alert background on the signin and signup pages. */
