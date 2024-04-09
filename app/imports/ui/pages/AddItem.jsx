@@ -89,6 +89,7 @@ const AddItem = () => {
                         {imagePreview && <img src={imagePreview} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
                         <div>Image</div>
                         <input type="file" accept="image/*" onChange={handleImagePreview} />
+                        <div style={{ marginBottom: '24px' }} /> {/* Add a space */}
                         <TextField name="_id" />
                         <TextField name="owner" />
                       </Col>
