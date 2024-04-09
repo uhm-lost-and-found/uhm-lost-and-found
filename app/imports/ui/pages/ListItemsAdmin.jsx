@@ -1,25 +1,23 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
+import StuffItemAdmin from '../components/StuffItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListStuff = () => {
+/* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
+const ListItemsAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
-    // Note that this subscription will get cleaned up
-    // when your component is unmounted or deps change.
+  const { stuffs, ready } = useTracker(() => {
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(Stuffs.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const items = Stuffs.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      stuffs: items,
       ready: rdy,
     };
   }, []);
@@ -27,20 +25,18 @@ const ListStuff = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
-          <Col className="text-center">
-            <h2>List Stuff</h2>
-          </Col>
+          <Col className="text-center"><h2>List Items (Admin)</h2></Col>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Condition</th>
-                <th>Edit</th>
+                <th>Owner</th>
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
             </tbody>
           </Table>
         </Col>
@@ -49,4 +45,4 @@ const ListStuff = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListStuff;
+export default ListItemsAdmin;
