@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Objects } from '../../api/object/Objects';
+// import { Stuffs } from '../../api/stuff/Stuff.js';
+import { LostObjects } from '../../api/lostobject/LostObject';
 
 /* eslint-disable no-console */
 
+/*
 // Initialize the database with a default data document.
 const addData = (data) => {
   console.log(`  Adding: ${data.name} (${data.owner})`);
@@ -17,17 +18,18 @@ if (Stuffs.collection.find().count() === 0) {
     Meteor.settings.defaultData.forEach(data => addData(data));
   }
 }
+ */
 
-/*
-const addObject = (lostObject) => {
+// Initialize the database with a default data document.
+const addLostObject = (lostObject) => {
   console.log(`  Adding: ${lostObject.name} (${lostObject.owner})`);
-  Objects.collection.insert(lostObject);
+  LostObjects.collection.insert(lostObject);
 };
 
-if (Objects.collection.find().count() === 0) {
+// Initialize the StuffsCollection if empty.
+if (LostObjects.collection.find().count() === 0) {
   if (Meteor.settings.defaultLostObjects) {
-    console.log('Creating default objects.');
-    Meteor.settings.defaultLostObjects.forEach(lostObject => addObject(lostObject));
+    console.log('Creating default lost objects.');
+    Meteor.settings.defaultLostObjects.forEach(lostObject => addLostObject(lostObject));
   }
 }
-*/

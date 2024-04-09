@@ -22,7 +22,7 @@ const LostObjectItemAdmin = ({ lostObject }) => (
 LostObjectItemAdmin.propTypes = {
   lostObject: PropTypes.shape({
     name: PropTypes.string,
-    dateFound: PropTypes.instanceOf(Date),
+    dateFound: PropTypes.string,
     locationFound: PropTypes.string,
     currentDepartment: PropTypes.string,
     image: PropTypes.string,
