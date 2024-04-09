@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
 
-/** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
+/** Renders a single row in the List Stuff (Admin) table. See pages/ListItemsAdmin.jsx. */
 const LostObjectItemAdmin = ({ lostObject }) => (
   <Card className="h-100">
     <Card.Header>
