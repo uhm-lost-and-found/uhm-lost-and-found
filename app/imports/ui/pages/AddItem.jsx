@@ -20,8 +20,8 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
-const AddStuff = () => {
+/* Renders the AddItem page for adding a document. */
+const AddItem = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
@@ -46,7 +46,7 @@ const AddStuff = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Stuff</h2></Col>
+          <Col className="text-center"><h2>Add Item</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
@@ -64,4 +64,4 @@ const AddStuff = () => {
   );
 };
 
-export default AddStuff;
+export default AddItem;
