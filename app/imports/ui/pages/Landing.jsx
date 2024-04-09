@@ -14,10 +14,10 @@ const Landing = () => (
       </Row>
       <Row className="mt-5">
         <Col>
-          <Card>
-            <h1>User Guide</h1>
-
-          </Card>
+          <Image fluid src="/images/item-page.png" />
+        </Col>
+        <Col>
+          <h1 style={{ fontSize: 72 }}>Reclaim your lost items.</h1>
         </Col>
       </Row>
     </Container>
