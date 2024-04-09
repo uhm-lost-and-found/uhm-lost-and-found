@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 const StuffItemAdmin = ({ stuff }) => (
   <tr>
     <td>{stuff.name}</td>
-    <td>{stuff.quantity}</td>
-    <td>{stuff.condition}</td>
+    <td>{stuff.dateFound.toLocaleDateString()}</td> {/* Adjusted toLocaleDateString */}
+    <td>{stuff.locationFound}</td>
+    <td>{stuff.currentDepartment}</td>
+    <td>{stuff.image}</td>
+    <td>{stuff._id}</td>
     <td>{stuff.owner}</td>
   </tr>
 );
@@ -15,8 +18,10 @@ const StuffItemAdmin = ({ stuff }) => (
 StuffItemAdmin.propTypes = {
   stuff: PropTypes.shape({
     name: PropTypes.string,
-    quantity: PropTypes.number,
-    condition: PropTypes.string,
+    dateFound: PropTypes.instanceOf(Date), // Adjusted to instanceOf(Date)
+    locationFound: PropTypes.string,
+    currentDepartment: PropTypes.string,
+    image: PropTypes.string,
     _id: PropTypes.string,
     owner: PropTypes.string,
   }).isRequired,

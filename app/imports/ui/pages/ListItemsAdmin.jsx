@@ -21,6 +21,7 @@ const ListItemsAdmin = () => {
       ready: rdy,
     };
   }, []);
+
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
@@ -30,8 +31,11 @@ const ListItemsAdmin = () => {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
+                <th>Date Found</th>
+                <th>Location Found</th>
+                <th>Current Department</th>
+                <th>Image</th>
+                <th>ID</th>
                 <th>Owner</th>
               </tr>
             </thead>
