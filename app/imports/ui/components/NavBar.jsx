@@ -15,7 +15,7 @@ const NavBar = () => {
     <Navbar expand="lg">
       <Container className="">
         <Navbar.Brand as={NavLink} to="/" className="mx-auto">
-          <Image src="/images/UH_Manoa-RGB.png" width="203" />
+          <Image src="https://manoa.hawaii.edu/wp/wp-content/uploads/2017/10/uhm-white-seal-nameplate@2x.png" width="203" />
           {/* <h4>LOST AND FOUND</h4> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
