@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import LostObjectItem from '../components/LostObjectItem';
-
+// import { Objects } from '../../api/object/Objects';
 import { Stuffs } from '../../api/stuff/Stuff';
 
 /* Renders a table containing all of the object documents. Use <ObjectItem> to render each row. */
@@ -13,11 +13,11 @@ const LostItems = () => {
   const { ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to ObjectItems documents.
+    // Get access to Objects documents.
     const subscription = Meteor.subscribe(Stuffs.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the object documents
+    // Get the objetItems documents
     const stuffItems = Stuffs.collection.find({}).fetch();
     return {
       stuffs: stuffItems,

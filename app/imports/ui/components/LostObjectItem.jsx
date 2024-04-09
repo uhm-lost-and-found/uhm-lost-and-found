@@ -26,6 +26,7 @@ LostObjectItem.propTypes = {
     locationFound: PropTypes.string,
     currentDepartment: PropTypes.string,
     image: PropTypes.string,
+    owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };

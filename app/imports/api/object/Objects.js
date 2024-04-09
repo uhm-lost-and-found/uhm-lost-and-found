@@ -17,12 +17,12 @@ class ObjectsCollection {
       locationFound: String,
       currentDepartment: String,
       image: String,
-      _id: String,
+      owner: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
-    this.userPublicationName = `${this.name}.publication.all`;
+    this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
@@ -31,4 +31,4 @@ class ObjectsCollection {
  * The singleton instance of the ObjectsCollection.
  * @type {ObjectsCollection}
  */
-export const ObjectItems = new ObjectsCollection();
+export const Objects = new ObjectsCollection();
