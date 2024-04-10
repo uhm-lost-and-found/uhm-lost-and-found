@@ -1,63 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { LostObjects } from '../../api/lostobject/LostObject';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-const bridge = new SimpleSchema2Bridge(Stuffs.schema);
+const bridge = new SimpleSchema2Bridge(LostObjects.schema);
 
-/* Renders the EditItem page for editing a single document. */
 const EditItem = () => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
-  // console.log('EditItem', _id);
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
-    // Determine if the subscription is ready
+    const subscription = Meteor.subscribe(LostObjects.userPublicationName);
     const rdy = subscription.ready();
-    // Get the document
-    const document = Stuffs.collection.findOne(_id);
+    const document = LostObjects.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
     };
   }, [_id]);
-  // console.log('EditItem', doc, ready);
-  // On successful submit, insert the data.
+
+  const [imagePreview, setImagePreview] = useState(doc.image); // Initialize image preview with existing image
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   const submit = (data) => {
-    const { name, quantity, condition } = data;
-    Stuffs.collection.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    const { name, dateFound, locationFound, currentDepartment, owner, image } = data;
+    LostObjects.collection.update(_id, { $set: { name, dateFound, locationFound, currentDepartment, owner, image } }, (error) => (
+      error ? swal('Error', error.message, 'error') : swal('Success', 'Item updated successfully', 'success')
+    ));
   };
 
   return ready ? (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Edit Item</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
-            <Card>
-              <Card.Body>
-                <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
-                <SubmitField value="Submit" />
-                <ErrorsField />
-                <HiddenField name="owner" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-        </Col>
-      </Row>
-    </Container>
+    <div style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}>
+      <img
+        src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg"
+        alt="Background"
+        style={{
+          width: '100%',
+          height: '100vh',
+          objectFit: 'cover',
+          filter: 'brightness(0.6)',
+          position: 'fixed',
+          zIndex: -1,
+          top: 0,
+          left: 0,
+        }}
+      />
+      <Container fluid className="py-3">
+        <Row className="justify-content-center">
+          <Col xs={8}>
+            <Col className="text-center">
+              <h2 style={{ color: 'white' }}>Edit Item</h2>
+            </Col>
+            <AutoForm schema={bridge} onSubmit={submit} model={doc}>
+              <Card>
+                <Card.Body>
+                  <Row>
+                    <Col md={6}>
+                      <TextField name="name" />
+                      <TextField name="dateFound" type="date" label="Date Found" />
+                      <TextField name="locationFound" label="Location Found" />
+                      <TextField name="currentDepartment" label="Current Department" />
+                    </Col>
+                    <Col md={6}>
+                      <div>Image</div>
+                      {imagePreview && <img src={imagePreview} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
+                      <input type="file" accept="image/*" name="image" onChange={handleImageChange} />
+                      <div style={{ marginBottom: '24px' }} /> {/* Add a space */}
+                      <TextField name="owner" />
+                    </Col>
+                  </Row>
+                  <SubmitField value="Submit" />
+                  <ErrorsField />
+                </Card.Body>
+              </Card>
+            </AutoForm>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   ) : <LoadingSpinner />;
 };
 
