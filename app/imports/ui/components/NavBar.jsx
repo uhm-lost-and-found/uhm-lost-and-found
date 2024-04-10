@@ -15,7 +15,7 @@ const NavBar = () => {
     <Navbar expand="lg">
       <Container className="">
         <Navbar.Brand as={NavLink} to="/" className="mx-auto">
-          <Image src="/images/UH_Manoa-RGB.png" width="203" />
+          <Image src="https://manoa.hawaii.edu/wp/wp-content/uploads/2017/10/uhm-white-seal-nameplate@2x.png" width="203" />
           {/* <h4>LOST AND FOUND</h4> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +31,6 @@ const NavBar = () => {
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
                 [
                   <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/add" key="add">ADD ITEM</Nav.Link>,
-                  <Nav.Link className="mx-lg-2" id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">INBOX</Nav.Link>,
                 ]
               ) : ''}
             </Nav>

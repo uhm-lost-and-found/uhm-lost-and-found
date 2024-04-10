@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItem = ({ lostObject }) => (
   <Card className="h-100">
     <Card.Header>
