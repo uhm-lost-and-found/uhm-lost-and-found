@@ -7,7 +7,7 @@ import StuffItemAdmin from '../components/StuffItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
-const ListItemsAdmin = () => {
+const ListStuffAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { stuffs, ready } = useTracker(() => {
     // Get access to Stuff documents.
@@ -21,21 +21,17 @@ const ListItemsAdmin = () => {
       ready: rdy,
     };
   }, []);
-
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
-          <Col className="text-center"><h2>List Items (Admin)</h2></Col>
+          <Col className="text-center"><h2>List Stuff (Admin)</h2></Col>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Date Found</th>
-                <th>Location Found</th>
-                <th>Current Department</th>
-                <th>Image</th>
-                <th>ID</th>
+                <th>Quantity</th>
+                <th>Condition</th>
                 <th>Owner</th>
               </tr>
             </thead>
@@ -49,4 +45,4 @@ const ListItemsAdmin = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListItemsAdmin;
+export default ListStuffAdmin;

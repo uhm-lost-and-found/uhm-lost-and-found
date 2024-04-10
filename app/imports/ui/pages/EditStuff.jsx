@@ -11,11 +11,11 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const bridge = new SimpleSchema2Bridge(Stuffs.schema);
 
-/* Renders the EditItem page for editing a single document. */
-const EditItem = () => {
+/* Renders the EditStuff page for editing a single document. */
+const EditStuff = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
-  // console.log('EditItem', _id);
+  // console.log('EditStuff', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Stuff documents.
@@ -29,7 +29,7 @@ const EditItem = () => {
       ready: rdy,
     };
   }, [_id]);
-  // console.log('EditItem', doc, ready);
+  // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, quantity, condition } = data;
@@ -42,7 +42,7 @@ const EditItem = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Edit Item</h2></Col>
+          <Col className="text-center"><h2>Edit Stuff</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
@@ -61,4 +61,4 @@ const EditItem = () => {
   ) : <LoadingSpinner />;
 };
 
-export default EditItem;
+export default EditStuff;
