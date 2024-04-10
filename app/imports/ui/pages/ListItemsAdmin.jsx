@@ -1,23 +1,25 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row, Table } from 'react-bootstrap';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItemAdmin from '../components/StuffItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
+import LostObjectItem from '../components/LostObjectItem';
+import { LostObjects } from '../../api/lostobject/LostObject';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
+/* Renders a table containing all of the object documents. Use <ObjectItem> to render each row. */
 const ListItemsAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { stuffs, ready } = useTracker(() => {
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.adminPublicationName);
+  const { ready, lostObjects } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Objects documents.
+    const subscription = Meteor.subscribe(LostObjects.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
-    const items = Stuffs.collection.find({}).fetch();
+    // Get the objetItems documents
+    const lostObjectItems = LostObjects.collection.find({}).fetch();
     return {
-      stuffs: items,
+      lostObjects: lostObjectItems,
       ready: rdy,
     };
   }, []);
@@ -25,24 +27,13 @@ const ListItemsAdmin = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
-          <Col className="text-center"><h2>List Items (Admin)</h2></Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Date Found</th>
-                <th>Location Found</th>
-                <th>Current Department</th>
-                <th>Image</th>
-                <th>ID</th>
-                <th>Owner</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
-            </tbody>
-          </Table>
+        <Col>
+          <Col className="text-center">
+            <h2>Lost Items</h2>
+          </Col>
+          <Row xs={1} md={2} lg={3} className="g-3">
+            {lostObjects.map((lostObject) => (<Col key={lostObject._id}><LostObjectItem lostObject={lostObject} /></Col>))}
+          </Row>
         </Col>
       </Row>
     </Container>

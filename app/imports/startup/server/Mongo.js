@@ -1,13 +1,12 @@
 import { Meteor } from 'meteor/meteor';
-// import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Stuffs } from '../../api/stuff/Stuff.js';
 import { LostObjects } from '../../api/lostobject/LostObject';
 
 /* eslint-disable no-console */
 
-/*
 // Initialize the database with a default data document.
 const addData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  // console.log(`  Adding: ${data.name} (${data.owner})`);
   Stuffs.collection.insert(data);
 };
 
@@ -18,7 +17,6 @@ if (Stuffs.collection.find().count() === 0) {
     Meteor.settings.defaultData.forEach(data => addData(data));
   }
 }
- */
 
 // Initialize the database with a default data document.
 const addLostObject = (lostObject) => {
