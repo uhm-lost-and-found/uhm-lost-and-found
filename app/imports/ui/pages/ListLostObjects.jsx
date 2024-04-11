@@ -5,8 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import LostObjectItem from '../components/LostObjectItem';
 import { LostObjects } from '../../api/lostobject/LostObject';
-import lostObjectItem from '../components/LostObjectItem';
-
 /* Renders a table containing all of the object documents. Use <ObjectItem> to render each row. */
 const ListLostObjects = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -52,7 +50,7 @@ const ListLostObjects = () => {
           <Row xs={1} md={2} lg={3} className="g-3 mt-5">
             {lostObjects.map((lostObject) => (
               <Col key={lostObject._id}>
-                <LostObjectItem lostObject={lostObject} collection={lostObjectItem.collection} />
+                <LostObjectItem lostObject={lostObject} />
               </Col>
             ))}
           </Row>
