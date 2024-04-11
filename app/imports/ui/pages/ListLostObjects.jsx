@@ -1,11 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import LostObjectItem from '../components/LostObjectItem';
 import { LostObjects } from '../../api/lostobject/LostObject';
-
 /* Renders a table containing all of the object documents. Use <ObjectItem> to render each row. */
 const ListLostObjects = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -25,14 +24,35 @@ const ListLostObjects = () => {
   }, []);
 
   return (ready ? (
-    <Container className="py-3">
+    <Container
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+      }}
+    >
+      <Image
+        src="images/lost-items-bg.jpeg"
+        style={{
+          width: '100%',
+          height: '100vh',
+          objectFit: 'cover',
+          position: 'fixed',
+          zIndex: -1,
+          top: 0,
+          left: 0,
+        }}
+      />
       <Row className="justify-content-center">
         <Col>
-          <Col className="text-center">
+          <div className="text-center">
             <h2>Lost Items</h2>
-          </Col>
-          <Row xs={1} md={2} lg={3} className="g-3">
-            {lostObjects.map((lostObject) => (<Col key={lostObject._id}><LostObjectItem lostObject={lostObject} /></Col>))}
+          </div>
+          <Row xs={1} md={2} lg={3} className="g-3 mt-5">
+            {lostObjects.map((lostObject) => (
+              <Col key={lostObject._id}>
+                <LostObjectItem lostObject={lostObject} />
+              </Col>
+            ))}
           </Row>
         </Col>
       </Row>
