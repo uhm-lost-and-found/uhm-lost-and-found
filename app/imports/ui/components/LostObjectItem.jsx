@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, Button, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Trash } from 'react-bootstrap-icons';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItem = ({ lostObject }) => (
@@ -12,10 +14,17 @@ const LostObjectItem = ({ lostObject }) => (
         <Card.Subtitle>Date Found: {lostObject.dateFound}</Card.Subtitle>
         <Card.Subtitle>Location Found: {lostObject.locationFound}</Card.Subtitle>
         <Card.Subtitle>Current Location: {lostObject.currentDepartment}</Card.Subtitle>
+        <Row>
+          <Col>
+            <Link to={`/edit/${lostObject._id}`}>Edit</Link>
+            <Button variant="danger" size="sm" className="m-2">
+              <Trash />
+            </Button>
+          </Col>
+        </Row>
       </Card.Header>
     </Card.Body>
   </Card>
-
 );
 
 // Require a document to be passed to this component.

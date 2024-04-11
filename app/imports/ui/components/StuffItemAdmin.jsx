@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListItemsAdmin.jsx. */
 const StuffItemAdmin = ({ stuff }) => (
@@ -11,6 +13,9 @@ const StuffItemAdmin = ({ stuff }) => (
     <td>{stuff.image}</td>
     <td>{stuff._id}</td>
     <td>{stuff.owner}</td>
+    <Link to={`/edit/${stuff._id}`}>
+      <Button>Edit</Button>
+    </Link>
   </tr>
 );
 
