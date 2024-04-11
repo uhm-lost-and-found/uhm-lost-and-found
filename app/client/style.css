@@ -8,6 +8,7 @@ body, html {
 :root {
   --matr-navbar-bg: transparent;
   --matr-navbar-text-color: white;
+  --matr-navbar-text-color1: rgb(164, 164, 164);
 }
 
 body {
@@ -18,6 +19,8 @@ body .navbar {
   --bs-navbar-bg: var(--matr-navbar-bg);
   --bs-navbar-brand-color: var(--matr-navbar-text-color);
   --bs-navbar-text-color: var(--matr-navbar-text-color);
+  --bs-navbar-hover-color: var(--matr-navbar-text-color);
+  --bs-navbar-active-color: var(--matr-navbar-text-color1);
 }
 
 .navbar-toggler {
