@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItemAdmin = ({ lostObject }) => (
@@ -12,6 +13,7 @@ const LostObjectItemAdmin = ({ lostObject }) => (
         <Card.Subtitle>Date Found: {lostObject.dateFound}</Card.Subtitle>
         <Card.Subtitle>Location Found: {lostObject.locationFound}</Card.Subtitle>
         <Card.Subtitle>Current Location: {lostObject.currentDepartment}</Card.Subtitle>
+        <Link to={`/edit/${lostObject._id}`}>Edit</Link>
       </Card.Header>
     </Card.Body>
   </Card>
