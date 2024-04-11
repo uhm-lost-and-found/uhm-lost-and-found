@@ -17,6 +17,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ListLostObjects from '../pages/ListLostObjects';
 import ListLostObjectsAdmin from '../pages/ListLostObjectsAdmin';
+import CampusMap from '../pages/CampusMap';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/edit/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/campusmap" element={<CampusMap />} />
         </Routes>
         <Footer />
       </div>
