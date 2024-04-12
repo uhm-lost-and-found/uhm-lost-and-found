@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Image, Row, Col, Card } from 'react-bootstrap';
+import { Container, Image, Row, Col } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
