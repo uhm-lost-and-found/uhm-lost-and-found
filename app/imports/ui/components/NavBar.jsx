@@ -28,12 +28,14 @@ const NavBar = () => {
               <Nav.Link className="mx-lg-2" id="list-stuff-nav" as={NavLink} to="/list" key="list">
                 LOST ITEMS
               </Nav.Link>
-              <Nav.Link className="mx-lg-2" id="campus-map-nav" as={NavLink} to="/campusmap" key="campusmap">
-                CAMPUS MAP
-              </Nav.Link>
+              {currentUser ? ([
+                <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">ADD ITEM</Nav.Link>,
+                <Nav.Link id="list-stuff-nav" as={NavLink} to="/edititem" key="list">EDIT ITEM</Nav.Link>,
+              ]) : ''}
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
                 [
-                  <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/add" key="add">ADD ITEM</Nav.Link>,
+                  <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/departments" key="add">DEPARTMENT</Nav.Link>,
+                  <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/add-departments" key="add">ADD DEPARTMENTS</Nav.Link>,
                 ]
               ) : ''}
             </Nav>
