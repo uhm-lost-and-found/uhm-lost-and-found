@@ -29,13 +29,15 @@ const LostObjectItem = ({ lostObject }) => {
           style={{ backgroundColor: "#00502f", borderRadius: 60 }}>
           Read More
         </button>
-        {currentUser ? ([
+        {/* {currentUser ? ([
           <>
-            <button
-              className="btn btn-primary text-white mx-1"
-              style={{ borderRadius: 60 }}>
-              Edit
-            </button>
+            <a href='/edit/${lostObject._id}'>
+              <button
+                className="btn btn-primary text-white mx-1"
+                style={{ borderRadius: 60 }}>
+                Edit
+              </button>
+            </a>
             
             <button
               className="btn btn-danger text-white"
@@ -43,7 +45,7 @@ const LostObjectItem = ({ lostObject }) => {
               Remove
             </button>
           </>
-        ]) : ''}
+        ]) : ''} */}
 
         {/* <Card.Header>
           <Card.Title>{lostObject.name}</Card.Title>
