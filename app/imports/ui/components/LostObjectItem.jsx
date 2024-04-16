@@ -6,11 +6,18 @@ import { Trash } from 'react-bootstrap-icons';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItem = ({ lostObject }) => (
-  <Card className="h-100 d-flex flex-column justify-content-center align-items-center">
-    <Card.Body className="text-center">
-      <Card.Header>
+  <Card className="h-100">
+    <Card.Img src={lostObject.image} alt={lostObject.name} style={{width: "100%", heigh: "15vw%", objectFit: "cover" }} />
+    <Card.Body>
+      <Card.Title>{lostObject.name}</Card.Title>
+      <Card.Subtitle>{lostObject.currentDepartment}</Card.Subtitle>
+      <Card.Text>
+        Date Found: {lostObject.dateFound}
+        <br />
+        Location Found: {lostObject.locationFound}
+      </Card.Text>
+      {/* <Card.Header>
         <Card.Title>{lostObject.name}</Card.Title>
-        <Image src={lostObject.image} width={75} height={75} />
         <Card.Subtitle>Date Found: {lostObject.dateFound}</Card.Subtitle>
         <Card.Subtitle>Location Found: {lostObject.locationFound}</Card.Subtitle>
         <Card.Subtitle>Current Location: {lostObject.currentDepartment}</Card.Subtitle>
@@ -22,7 +29,7 @@ const LostObjectItem = ({ lostObject }) => (
             </Button>
           </Col>
         </Row>
-      </Card.Header>
+      </Card.Header> */}
     </Card.Body>
   </Card>
 );
