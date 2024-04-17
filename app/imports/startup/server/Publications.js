@@ -13,6 +13,11 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish('allAccess', function () {
+  return LostObjects.collection.find();
+});
+
+// Department-level publication.
 Meteor.publish(LostObjects.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;

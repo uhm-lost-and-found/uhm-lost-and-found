@@ -24,7 +24,7 @@ const addLostObject = (lostObject) => {
   LostObjects.collection.insert(lostObject);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the LostObjectsCollection if empty.
 if (LostObjects.collection.find().count() === 0) {
   if (Meteor.settings.defaultLostObjects) {
     console.log('Creating default lost objects.');

@@ -18,6 +18,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import ListLostObjects from '../pages/ListLostObjects';
 import ListLostObjectsAdmin from '../pages/ListLostObjectsAdmin';
 import CampusMap from '../pages/CampusMap';
+import ListLostObjectsDep from '../pages/ListLostObjectsDep';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -37,7 +38,8 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><ListLostObjects /></ProtectedRoute>} />
+          <Route path="/list" element={<ListLostObjects />} />
+          <Route path="/listDep" element={<ProtectedRoute><ListLostObjectsDep /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListLostObjectsAdmin /></AdminProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />

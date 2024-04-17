@@ -12,7 +12,7 @@ const ListLostObjects = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Objects documents.
-    const subscription = Meteor.subscribe(LostObjects.userPublicationName);
+    const subscription = Meteor.subscribe('allAccess');
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the objetItems documents

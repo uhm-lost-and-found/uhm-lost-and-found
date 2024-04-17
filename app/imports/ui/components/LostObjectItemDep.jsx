@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Button, Card, Col, Image, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Trash } from 'react-bootstrap-icons';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
-const LostObjectItem = ({ lostObject }) => (
+const LostObjectItemAdmin = ({ lostObject }) => (
   <Card className="h-100 d-flex flex-column justify-content-center align-items-center">
     <Card.Body className="text-center">
       <Card.Header>
@@ -12,13 +14,22 @@ const LostObjectItem = ({ lostObject }) => (
         <Card.Subtitle>Date Found: {lostObject.dateFound}</Card.Subtitle>
         <Card.Subtitle>Location Found: {lostObject.locationFound}</Card.Subtitle>
         <Card.Subtitle>Current Location: {lostObject.currentDepartment}</Card.Subtitle>
+        <Row>
+          <Col>
+            <Link to={`/edit/${lostObject._id}`}>Edit</Link>
+            <Button variant="danger" size="sm" className="m-2">
+              <Trash />
+            </Button>
+          </Col>
+        </Row>
       </Card.Header>
     </Card.Body>
   </Card>
+
 );
 
 // Require a document to be passed to this component.
-LostObjectItem.propTypes = {
+LostObjectItemAdmin.propTypes = {
   lostObject: PropTypes.shape({
     name: PropTypes.string,
     dateFound: PropTypes.string,
@@ -30,4 +41,4 @@ LostObjectItem.propTypes = {
   }).isRequired,
 };
 
-export default LostObjectItem;
+export default LostObjectItemAdmin;
