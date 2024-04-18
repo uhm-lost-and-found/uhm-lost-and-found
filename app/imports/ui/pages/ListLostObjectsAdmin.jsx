@@ -42,7 +42,7 @@ const ListLostObjectsAdmin = () => {
             <Row xs={1} md={2} lg={3} className="g-3">
               {lostObjects.map((lostObject) => (
                 <Col key={lostObject._id}>
-                  <LostObjectItemAdmin lostObject={lostObject} />
+                  <LostObjectItemAdmin lostObject={lostObject} collection={LostObjects.collection} />
                 </Col>
               ))}
             </Row>
