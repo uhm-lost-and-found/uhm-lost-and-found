@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItemAdmin = ({ lostObject, collection }) => {
+  // eslint-disable-next-line no-unused-vars
   const removeItem = (docID) => {
     console.log(`The item to remove is ${docID}`);
     collection.remove(docID);
@@ -29,15 +30,17 @@ const LostObjectItemAdmin = ({ lostObject, collection }) => {
         >
           Read More
         </button>
-        <button
-          type="button"
-          className="btn btn-primary text-white"
-          data-bs-toggle="modal"
-          data-bs-target={lostObject._id}
-          style={{ borderRadius: 60 }}
-        >
-          Edit
-        </button>
+        <a href={`/edit/${lostObject._id}`}>
+          <button
+            type="button"
+            className="btn btn-primary text-white mx-2"
+            data-bs-toggle="modal"
+            data-bs-target={lostObject._id}
+            style={{ borderRadius: 60 }}
+          >
+            Edit
+          </button>
+        </a>
         <button
           type="button"
           className="btn btn-danger text-white"
