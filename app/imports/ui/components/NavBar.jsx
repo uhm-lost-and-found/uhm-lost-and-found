@@ -22,15 +22,18 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav ">
           <div className="flex-grow-1 pe-3">
             <Nav className="mx-auto justify-content-center">
-              <Nav.Link className="mx-lg-2" id="your-item-id" as={NavLink} to="/" key="home">HOME</Nav.Link>
-              {currentUser ? (
-                <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">ADD ITEM</Nav.Link>
-              ) : (
-                <Nav.Link className="mx-lg-2" id="list-stuff-nav" as={NavLink} to="/list" key="list">LOST ITEMS</Nav.Link>
-              )}
+              <Nav.Link className="mx-lg-2" id="your-item-id" as={NavLink} to="/" key="home">
+                HOME
+              </Nav.Link>
+              <Nav.Link className="mx-lg-2" id="list-stuff-nav" as={NavLink} to="/list" key="list">
+                LOST ITEMS
+              </Nav.Link>
+              {currentUser ? ([
+                <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">ADD ITEM</Nav.Link>,
+                <Nav.Link id="list-stuff-nav" as={NavLink} to="/admin" key="list">EDIT ITEM</Nav.Link>,
+              ]) : ''}
               {Roles.userIsInRole(Meteor.userId(), 'admin') && (
                 <>
-                  <Nav.Link id="list-stuff-nav" as={NavLink} to="/admin" key="list">EDIT ITEM</Nav.Link>
                   <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/departments" key="add-departments">DEPARTMENT</Nav.Link>
                   <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/add-departments" key="add">ADD DEPARTMENTS</Nav.Link>
                 </>
