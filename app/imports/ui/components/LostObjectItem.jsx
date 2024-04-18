@@ -6,6 +6,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItem = ({ lostObject }) => {
+  // eslint-disable-next-line no-unused-vars
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
@@ -33,13 +34,6 @@ const LostObjectItem = ({ lostObject }) => {
       </Card.Body>
     </Card>
   );
-  
-  
-  
-  
-  
-  
-  
 };
 
 // Require a document to be passed to this component.
