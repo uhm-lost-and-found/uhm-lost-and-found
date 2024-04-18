@@ -18,10 +18,11 @@ const LostObjectItemAdmin = ({ lostObject }) => (
         className="btn text-white"
         data-bs-toggle="modal"
         data-bs-target={lostObject._id}
-        style={{ backgroundColor: "#00502f", borderRadius: 60 }}
+        style={{ backgroundColor: '#00502f', borderRadius: 60 }}
       >
         Read More
       </button>
+      {/* eslint-disable-next-line no-template-curly-in-string */}
       <a href="/edit/${lostObject._id}">
         <button
           type="button"

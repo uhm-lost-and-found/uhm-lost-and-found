@@ -19,12 +19,12 @@ const LostObjectItem = ({ lostObject }) => {
         className="btn text-white"
         data-bs-toggle="modal"
         data-bs-target={lostObject._id}
-        style={{ backgroundColor: "#00502f", borderRadius: 60 }}
+        style={{ backgroundColor: '#00502f', borderRadius: 60 }}
       >
         Read More
       </button>
     </Card.Body>
-  </Card>
+  </Card>;
 };
 
 // Require a document to be passed to this component.
