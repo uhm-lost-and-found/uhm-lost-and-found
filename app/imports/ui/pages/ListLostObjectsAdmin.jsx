@@ -6,17 +6,10 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import LostObjectItemAdmin from '../components/LostObjectItemAdmin';
 import { LostObjects } from '../../api/lostobject/LostObject';
 
-/* Renders a table containing all of the object documents. Use <ObjectItem> to render each row. */
 const ListLostObjectsAdmin = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, lostObjects } = useTracker(() => {
-    // Note that this subscription will get cleaned up
-    // when your component is unmounted or deps change.
-    // Get access to Objects documents.
     const subscription = Meteor.subscribe(LostObjects.adminPublicationName);
-    // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the objetItems documents
     const lostObjectItems = LostObjects.collection.find({}).fetch();
     return {
       lostObjects: lostObjectItems,
@@ -25,22 +18,38 @@ const ListLostObjectsAdmin = () => {
   }, []);
 
   return (ready ? (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>Lost Items (Admin)</h2>
+    <div style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
+      <img
+        src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg"
+        alt="Background"
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          filter: 'brightness(0.6)',
+          position: 'fixed',
+          zIndex: -1,
+          top: 0,
+          left: 0,
+        }}
+      />
+      <Container className="py-3">
+        <Row className="justify-content-center">
+          <Col>
+            <Col className="text-center">
+              <h2 style={{ color: 'white' }}>Lost Items (Admin)</h2>
+            </Col>
+            <Row xs={1} md={2} lg={3} className="g-3">
+              {lostObjects.map((lostObject) => (
+                <Col key={lostObject._id}>
+                  <LostObjectItemAdmin lostObject={lostObject} />
+                </Col>
+              ))}
+            </Row>
           </Col>
-          <Row xs={1} md={2} lg={3} className="g-3">
-            {lostObjects.map((lostObject) => (
-              <Col key={lostObject._id}>
-                <LostObjectItemAdmin lostObject={lostObject} />
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    </div>
   ) : <LoadingSpinner />);
 };
 

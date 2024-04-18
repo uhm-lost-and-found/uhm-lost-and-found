@@ -23,7 +23,7 @@ const EditItem = () => {
     };
   }, [_id]);
 
-  const [imagePreview, setImagePreview] = useState(doc.image); // Initialize image preview with existing image
+  const [imagePreview, setImagePreview] = useState(doc?.image || '');
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -43,7 +43,9 @@ const EditItem = () => {
     ));
   };
 
-  return ready ? (
+  const isAdmin = Meteor.user()?.role === 'admin';
+
+  return ready && doc ? (
     <div style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}>
       <img
         src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg"
@@ -79,8 +81,8 @@ const EditItem = () => {
                       <div>Image</div>
                       {imagePreview && <img src={imagePreview} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
                       <input type="file" accept="image/*" name="image" onChange={handleImageChange} />
-                      <div style={{ marginBottom: '24px' }} /> {/* Add a space */}
-                      <TextField name="owner" />
+                      <div style={{ marginBottom: '24px' }} />
+                      <TextField name="owner" disabled={!isAdmin && doc.owner !== Meteor.user().username} />
                     </Col>
                   </Row>
                   <SubmitField value="Submit" />

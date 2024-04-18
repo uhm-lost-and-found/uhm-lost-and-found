@@ -4,8 +4,7 @@ import { Button, Card, Col, Image, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Trash } from 'react-bootstrap-icons';
 
-/** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
-const LostObjectItemAdmin = ({ lostObject }) => (
+const LostObjectItemDep = ({ lostObject }) => (
   <Card className="h-100 d-flex flex-column justify-content-center align-items-center">
     <Card.Body className="text-center">
       <Card.Header>
@@ -25,11 +24,9 @@ const LostObjectItemAdmin = ({ lostObject }) => (
       </Card.Header>
     </Card.Body>
   </Card>
-
 );
 
-// Require a document to be passed to this component.
-LostObjectItemAdmin.propTypes = {
+LostObjectItemDep.propTypes = {
   lostObject: PropTypes.shape({
     name: PropTypes.string,
     dateFound: PropTypes.string,
@@ -41,4 +38,4 @@ LostObjectItemAdmin.propTypes = {
   }).isRequired,
 };
 
-export default LostObjectItemAdmin;
+export default LostObjectItemDep;

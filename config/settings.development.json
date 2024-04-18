@@ -15,5 +15,20 @@
     { "name":  "Airpods", "dateFound": "10/10/2011", "locationFound": "Paradise Palms", "currentDepartment": "POST", "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1551489688005", "owner": "john@foo.com" },
     { "name": "Nike Shoes", "dateFound": "06/12/2012", "locationFound": "Webster Hall", "currentDepartment": "Webster Hall", "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e4060b19-289e-43b4-8375-c047c1cf6ab6/air-max-pulse-mens-shoes-DWTVpN.png","owner": "john@foo.com" },
     { "name": "Wallet", "dateFound": "12/02/2014", "locationFound": "Shidler Hall", "currentDepartment": "Bookstore", "image": "https://cdn11.bigcommerce.com/s-z6agnrtx29/images/stencil/1280x1280/products/575/3025/rachel-cruze-cash-envelope-wallet-camel__50885__58968.1699630602.jpg?c=1", "owner": "admin@foo.com"}
-  ]
+  ],
+
+  "publications": {
+    "LostObjects.publication.admin": {
+      "restrictedFields": [],
+      "allowedRoles": ["admin"]
+    },
+    "LostObjects.publication.department": {
+      "restrictedFields": [],
+      "allowedRoles": ["admin", "department"]
+    },
+    "LostObjects.publication.user": {
+      "restrictedFields": ["owner"],
+      "allowedRoles": ["admin", "department"]
+    }
+  }
 }

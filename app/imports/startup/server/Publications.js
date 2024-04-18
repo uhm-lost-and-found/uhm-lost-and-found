@@ -20,8 +20,16 @@ Meteor.publish('allAccess', function () {
 // Department-level publication.
 Meteor.publish(LostObjects.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return LostObjects.collection.find({ owner: username });
+    const user = Meteor.users.findOne(this.userId);
+    if (user) {
+      if (Roles.userIsInRole(user._id, 'admin')) {
+        // Admin user, publish all items
+        return LostObjects.collection.find();
+      }
+      // Non-admin user, publish only their own items
+      return LostObjects.collection.find({ owner: user.username });
+
+    }
   }
   return this.ready();
 });

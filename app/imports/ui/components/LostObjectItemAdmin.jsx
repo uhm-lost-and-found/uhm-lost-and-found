@@ -19,7 +19,7 @@ const LostObjectItemAdmin = ({ lostObject }) => (
         </Row>
         <Row>
           <Col>
-            <Link to={`/edit/${lostObject._id}`}>Edit</Link>
+            <Link to={`/edit/${lostObject._id}`}><Button>Edit</Button></Link>
             <Button variant="danger" size="sm" className="m-2">
               <Trash />
             </Button>
