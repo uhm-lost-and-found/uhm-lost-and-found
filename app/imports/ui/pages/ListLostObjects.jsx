@@ -49,7 +49,7 @@ const ListLostObjects = () => {
           </div>
           <Row xs={1} md={2} lg={3} className="g-3 mt-5">
             {lostObjects.map((lostObject) => (
-              <Col key={lostObject._id}>
+              <Col sm={12} md={6} lg={3} key={lostObject._id}>
                 <LostObjectItem lostObject={lostObject} />
               </Col>
             ))}
