@@ -41,8 +41,8 @@ const ListLostObjectsAdmin = () => {
             </Col>
             <Row xs={1} md={2} lg={3} className="g-3">
               {lostObjects.map((lostObject) => (
-                <Col sm={12} md={6} lg={3} key={lostObject._id}>
-                  <LostObjectItemAdmin lostObject={lostObject} />
+                <Col key={lostObject._id}>
+                  <LostObjectItemAdmin lostObject={lostObject} collection={LostObjects.collection} />
                 </Col>
               ))}
             </Row>

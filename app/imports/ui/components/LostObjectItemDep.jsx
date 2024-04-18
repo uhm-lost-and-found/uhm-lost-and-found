@@ -16,9 +16,7 @@ const LostObjectItemDep = ({ lostObject }) => (
         <Row>
           <Col>
             <Link to={`/edit/${lostObject._id}`}>Edit</Link>
-            <Button variant="danger" size="sm" className="m-2">
-              <Trash />
-            </Button>
+            <Button variant="danger" size="sm" className="m-2"><Trash /></Button>
           </Col>
         </Row>
       </Card.Header>
