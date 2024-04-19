@@ -34,8 +34,8 @@ const NavBar = () => {
               ]) : ''}
               {Roles.userIsInRole(Meteor.userId(), 'admin') && (
                 <>
-                  <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/departments" key="add-departments">DEPARTMENT</Nav.Link>
-                  <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/add-departments" key="add">ADD DEPARTMENTS</Nav.Link>
+                  <Nav.Link className="mx-lg-2" id="list-stuff-nav" as={NavLink} to="/departments" key="departments">DEPARTMENTS</Nav.Link>
+                  <Nav.Link className="mx-lg-2" id="add-stuff-nav" as={NavLink} to="/add-department" key="add-department">ADD DEPARTMENT</Nav.Link>
                 </>
               )}
               {Roles.userIsInRole(Meteor.userId(), 'department') && (
