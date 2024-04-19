@@ -71,6 +71,8 @@ const AddItem = () => {
                       <TextField name="dateFound" label="Date Found" />
                       <TextField name="locationFound" label="Location Found" />
                       <TextField name="currentDepartment" label="Current Location" />
+                    </Col>
+                    <Col md={6}>
                       <TextField name="image" label="Image URL" />
                     </Col>
                   </Row>
