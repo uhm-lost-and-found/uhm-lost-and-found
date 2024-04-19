@@ -26,6 +26,15 @@ class LostObjectsCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
     this.departmentPublicationName = `${this.name}.publication.department`;
   }
+
+  /**
+   * Insert a lost object into the collection.
+   * @param {Object} object The lost object to insert.
+   * @returns {string} The ID of the inserted document.
+   */
+  insertLostObject(object) {
+    return this.collection.insert(object);
+  }
 }
 
 /**
