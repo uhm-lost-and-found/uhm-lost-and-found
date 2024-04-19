@@ -9,7 +9,11 @@ import { LostObjects } from '../../api/lostobject/LostObject';
 
 const formSchema = new SimpleSchema({
   name: String,
-  dateFound: String,
+  dateFound: {
+    type: String,
+    regEx: /^\d{1,2}\/\d{1,2}\/\d{4}$/,
+    label: 'Date Found',
+  },
   locationFound: String,
   currentDepartment: String,
   image: String,
@@ -20,10 +24,10 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 const AddItem = () => {
 
   const submit = (data, formRef) => {
-    const { name, dateFound, locationFound, currentDepartment } = data;
+    const { name, dateFound, locationFound, currentDepartment, image } = data;
     const owner = Meteor.user().username;
     LostObjects.collection.insert(
-      { name, dateFound, locationFound, currentDepartment, owner },
+      { name, dateFound, locationFound, currentDepartment, image, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -64,9 +68,10 @@ const AddItem = () => {
                   <Row>
                     <Col md={6}>
                       <TextField name="name" />
-                      <TextField name="dateFound" type="date" label="Date Found" />
+                      <TextField name="dateFound" label="Date Found" />
                       <TextField name="locationFound" label="Location Found" />
                       <TextField name="currentDepartment" label="Current Location" />
+                      <TextField name="image" label="Image URL" />
                     </Col>
                   </Row>
                   <SubmitField value="Submit" />
