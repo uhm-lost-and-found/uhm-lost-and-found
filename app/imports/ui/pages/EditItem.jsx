@@ -75,7 +75,7 @@ const EditItem = () => {
                       <TextField name="name" />
                       <TextField name="dateFound" type="date" label="Date Found" />
                       <TextField name="locationFound" label="Location Found" />
-                      <TextField name="currentDepartment" label="Current Department" />
+                      <TextField name="currentDepartment" label="Current Location" />
                     </Col>
                     <Col md={6}>
                       <div>Image</div>
