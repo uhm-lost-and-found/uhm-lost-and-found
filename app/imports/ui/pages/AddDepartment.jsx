@@ -60,7 +60,7 @@ const AddDepartment = () => {
                     <Card>
                       <Card.Body>
                         <TextField name="email" placeholder="Department e-mail address" />
-                        <TextField name="password" placeholder="Temp password" type="password" />
+                        <TextField name="password" placeholder="Temp password" />
                         <ErrorsField />
                         <SubmitField />
                       </Card.Body>
@@ -102,11 +102,10 @@ const AddDepartment = () => {
               <Row className="justify-content-center">
                 <Col xs={5} className="mt-2">
                   <Col className="text-center">
-                    <h2 style={{ color: 'white' }}>Register Department</h2>
+                    <h2 style={{ color: 'white' }}>Department Successfully Registered</h2>
                   </Col>
                   <Col className="text-center">
-                    <h4 style={{ color: 'white' }}>Good Job :D</h4>
-                    <Button onClick={handleSuccessButtonClick} />
+                    <Button onClick={handleSuccessButtonClick} variant="success">Create Another Department Account</Button>
                   </Col>
                 </Col>
               </Row>
