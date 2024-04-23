@@ -106,6 +106,26 @@ test('Test that LOST ITEMS page appears after signing in with an admin account',
   await testController.expect(lostItemsHeadingExists).ok();
 });
 
+// Test that ADD ITEM page appears after signing in with an admin account
+test('Test that ADD ITEM page appears after signing in with an admin account', async (testController) => {
+  await testController.navigateTo('http://localhost:3000');
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await testController.click(Selector('a').withText('ADD ITEM'));
+  const lostItemsHeadingExists = await Selector('h2').withText('Add Item').exists;
+  await testController.expect(lostItemsHeadingExists).ok();
+});
+
+// Test that EDIT ITEM page appears after signing in with an admin account
+test('Test that EDIT ITEM page appears after signing in with an admin account', async (testController) => {
+  await testController.navigateTo('http://localhost:3000');
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await testController.click(Selector('a').withText('EDIT ITEM'));
+  const lostItemsHeadingExists = await Selector('h2').withText('Lost Items (Admin)').exists;
+  await testController.expect(lostItemsHeadingExists).ok();
+});
+
 // Test that DEPARTMENTS page appears after signing in with an admin account
 test('Test that DEPARTMENTS page appears after signing in with an admin account', async (testController) => {
   await testController.navigateTo('http://localhost:3000');
