@@ -1,4 +1,4 @@
-name: uhm-lost-and-found
+name: ci-meteor-application-template-react
 
 on:
   push:
