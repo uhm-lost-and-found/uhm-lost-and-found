@@ -31,7 +31,7 @@ const ListLostObjects = () => {
       }}
     >
       <Image
-        src="images/lost-items-bg.jpeg"
+        src="images/lost-items-bg2.jpeg"
         style={{
           width: '100%',
           height: '100vh',
