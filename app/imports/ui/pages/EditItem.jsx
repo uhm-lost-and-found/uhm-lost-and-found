@@ -14,7 +14,7 @@ const bridge = new SimpleSchema2Bridge(LostObjects.schema);
 const EditItem = () => {
   const { _id } = useParams();
   const { doc, ready } = useTracker(() => {
-    const subscription = Meteor.subscribe(LostObjects.userPublicationName);
+    const subscription = Meteor.subscribe(LostObjects.departmentPublicationName);
     const rdy = subscription.ready();
     const document = LostObjects.collection.findOne(_id);
     return {
