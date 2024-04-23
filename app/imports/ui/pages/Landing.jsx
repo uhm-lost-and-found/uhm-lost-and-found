@@ -14,7 +14,7 @@ const Landing = () => (
       </Row>
       <Row className="mt-5 text-white">
         <Col>
-          <Image style={{ borderRadius: 10, height: 225 }} fluid src="/images/item-page.png" />
+          <Image style={{ borderRadius: 10, height: 225, display: 'block', margin: 'auto' }} className="justify-content-center" fluid src="/images/airpods.png" />
         </Col>
         <Col>
           <h3>Reclaim your lost items.</h3>
