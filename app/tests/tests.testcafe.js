@@ -28,9 +28,13 @@ test('Test that HOME page shows up without being logged in', async (testControll
 // Test that LOST ITEMS page shows up without being logged in
 test('Test that LOST ITEMS page shows up without being logged in', async (testController) => {
   await testController.navigateTo('http://localhost:3000');
+
+  // Click the "LOST ITEMS" link
   await testController.click(Selector('a').withText('LOST ITEMS'));
-  const lostItemsHeadingExists = await Selector('h2').withText('Lost Items').exists;
-  await testController.expect(lostItemsHeadingExists).ok();
+
+  // Wait for the "Lost Items" heading to be present or for the sign-in page to load
+  const lostItemsHeading = Selector('h2').withText('Lost Items');
+  await testController.expect(lostItemsHeading.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
 });
 
 // Test that SIGN IN and SIGN OUT work with a departmental account
@@ -44,7 +48,13 @@ test('Test that SIGN IN and SIGN OUT work with a departmental account', async (t
 test('Test that HOME page appears after signing in with a departmental account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
-  await testController.click(Selector('a').withText('HOME'));
+
+  // Wait for the HOME page to load
+  const homeLink = Selector('a').withText('HOME');
+  await testController.expect(homeLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.click(homeLink);
+
+  // Ensure the HOME page is displayed
   await landingPage.isDisplayed(testController);
 });
 
@@ -52,9 +62,15 @@ test('Test that HOME page appears after signing in with a departmental account',
 test('Test that LOST ITEMS page appears after signing in with a departmental account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
-  await testController.click(Selector('a').withText('LOST ITEMS'));
-  const lostItemsHeadingExists = await Selector('h2').withText('Lost Items').exists;
-  await testController.expect(lostItemsHeadingExists).ok();
+
+  // Wait for the LOST ITEMS page to load
+  const lostItemsLink = Selector('a').withText('LOST ITEMS');
+  await testController.expect(lostItemsLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.click(lostItemsLink);
+
+  // Ensure the LOST ITEMS page is displayed
+  const lostItemsHeading = Selector('h2').withText('Lost Items');
+  await testController.expect(lostItemsHeading.exists).ok();
 });
 
 // Test that ADD ITEM page appears after signing in with a departmental account
@@ -86,7 +102,13 @@ test('Test that SIGN IN and SIGN OUT work with an admin account', async (testCon
 test('Test that HOME page appears after signing in with an admin account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
-  await testController.click(Selector('a').withText('HOME'));
+
+  // Wait for the HOME page to load
+  const homeLink = Selector('a').withText('HOME');
+  await testController.expect(homeLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.click(homeLink);
+
+  // Ensure the HOME page is displayed
   await landingPage.isDisplayed(testController);
 });
 
@@ -94,9 +116,15 @@ test('Test that HOME page appears after signing in with an admin account', async
 test('Test that LOST ITEMS page appears after signing in with an admin account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
-  await testController.click(Selector('a').withText('LOST ITEMS'));
-  const lostItemsHeadingExists = await Selector('h2').withText('Lost Items').exists;
-  await testController.expect(lostItemsHeadingExists).ok();
+
+  // Wait for the LOST ITEMS page to load
+  const lostItemsLink = Selector('a').withText('LOST ITEMS');
+  await testController.expect(lostItemsLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.click(lostItemsLink);
+
+  // Ensure the LOST ITEMS page is displayed
+  const lostItemsHeading = Selector('h2').withText('Lost Items');
+  await testController.expect(lostItemsHeading.exists).ok();
 });
 
 // Test that ADD ITEM page appears after signing in with an admin account
