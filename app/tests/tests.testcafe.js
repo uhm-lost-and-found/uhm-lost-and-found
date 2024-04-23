@@ -12,21 +12,30 @@ const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
-// Test that landing page shows up without being logged in
-test('Test that landing page shows up without being logged in', async (testController) => {
+// Test that HOME page shows up without being logged in
+test('Test that HOME page shows up without being logged in', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
-// Test that lost items page shows up without being logged in
-test('Test that lost items page shows up without being logged in', async (testController) => {
+// Test that LOST ITEMS page shows up without being logged in
+test('Test that LOST ITEMS page shows up without being logged in', async (testController) => {
+  // Ensure the user is logged out by clicking the Sign Out link if it exists
+  const signOutLinkExists = await Selector('a[href="/signout"]').exists;
+  if (signOutLinkExists) {
+    await testController.click('a[href="/signout"]');
+  }
+
+  // Now navigate to the Lost Items page
   await testController.navigateTo('http://localhost:3000');
   await testController.click(Selector('a').withText('LOST ITEMS'));
+
+  // Check if the Lost Items page is displayed
   const lostItemsHeadingExists = await Selector('h2').withText('Lost Items').exists;
   await testController.expect(lostItemsHeadingExists).ok();
 });
 
-// Test that signin and signout work with a departmental account
-test('Test that signin and signout work with a departmental account', async (testController) => {
+// Test that SIGN IN and SIGN OUT work with a departmental account
+test('Test that SIGN IN and SIGN OUT work with a departmental account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
   await navBar.logout(testController); // Ensure logout for next test
@@ -71,8 +80,8 @@ test('Test that EDIT ITEM page appears after signing in with a departmental acco
   await testController.expect(editItemHeadingExists).ok();
 });
 
-// Test that signin and signout work with an admin account
-test('Test that signin and signout work with an admin account', async (testController) => {
+// Test that SIGN IN and SIGN OUT work with an admin account
+test('Test that SIGN IN and SIGN OUT work with an admin account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await navBar.logout(testController); // Ensure logout for next test
