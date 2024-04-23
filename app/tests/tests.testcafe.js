@@ -9,7 +9,7 @@ import { navBar } from './navbar.component';
 const departmentCredentials = { username: 'john@foo.com', password: 'changeme' };
 const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 
-fixture('meteor-application-template-react localhost test with default db')
+fixture('uhm-lost-and-found localhost test with default db')
   .page('http://localhost:3000');
 
 // Before each test, ensure the user is logged out
