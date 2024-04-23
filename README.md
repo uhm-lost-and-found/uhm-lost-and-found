@@ -1,3 +1,5 @@
-[![ci-meteor-application-template-react](https://github.com/ics-software-engineering/meteor-application-template-react/actions/workflows/ci.yml/badge.svg)](https://github.com/ics-software-engineering/meteor-application-template-react/actions/workflows/ci.yml)
+[![uhm-lost-and-found](https://github.com/uhm-lost-and-found/uhm-lost-and-found/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/uhm-lost-and-found/uhm-lost-and-found/actions/workflows/ci.yml)
 
-For details, please see http://ics-software-engineering.github.io/meteor-application-template-react/
+For details, please see https://uhm-lost-and-found.github.io/.
+
+Our site is located at https://uhmlostandfound.com/.
