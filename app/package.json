@@ -1,5 +1,5 @@
 {
-  "name": "meteor-application-template-react",
+  "name": "uhm-lost-and-found",
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.24.0",
