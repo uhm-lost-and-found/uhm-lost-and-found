@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Modal, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 
@@ -10,6 +10,11 @@ const LostObjectItem = ({ lostObject }) => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
+
+  const [showModal, setShowModal] = React.useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   return (
     <Card className="h-100">
@@ -22,15 +27,31 @@ const LostObjectItem = ({ lostObject }) => {
           <br />
           Location Found: {lostObject.locationFound}
         </Card.Text>
-        <button
-          type="button"
-          className="btn text-white"
-          data-bs-toggle="modal"
-          data-bs-target={lostObject._id}
-          style={{ backgroundColor: '#00502f', borderRadius: 60 }}
+        <Button
+          variant="primary"
+          onClick={handleShow}
+          style={{ backgroundColor: '#00502f', borderRadius: 60, border: 'none' }}
         >
           Read More
-        </button>
+        </Button>
+
+        <Modal
+          show={showModal}
+          onHide={handleClose}
+          centered
+          scrollable
+          className="text-black"
+        >
+          <Modal.Header closeButton style={{ borderColor: '#282828', backgroundColor: '#282828' }}>
+            <Modal.Title>
+              <h6 style={{ color: 'd3d3d3' }}>{lostObject.name}</h6>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Example Text
+          </Modal.Body>
+        </Modal>
+
       </Card.Body>
     </Card>
   );
