@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 
+/** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItemDep = ({ lostObject, collection }) => {
   // eslint-disable-next-line no-unused-vars
   const removeItem = (docID) => {
@@ -43,6 +44,7 @@ const LostObjectItemDep = ({ lostObject, collection }) => {
         <button
           type="button"
           className="btn btn-danger text-white"
+          onClick={() => removeItem(lostObject._id)}
           data-bs-toggle="modal"
           data-bs-target={lostObject._id}
           style={{ borderRadius: 60 }}

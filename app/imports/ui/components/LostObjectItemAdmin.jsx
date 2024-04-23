@@ -44,6 +44,7 @@ const LostObjectItemAdmin = ({ lostObject, collection }) => {
         <button
           type="button"
           className="btn btn-danger text-white"
+          onClick={() => removeItem(lostObject._id)}
           data-bs-toggle="modal"
           data-bs-target={lostObject._id}
           style={{ borderRadius: 60 }}
