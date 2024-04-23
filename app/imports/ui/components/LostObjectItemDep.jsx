@@ -1,29 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Col, Image, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { Trash } from 'react-bootstrap-icons';
+import { Card } from 'react-bootstrap';
 
-const LostObjectItemDep = ({ lostObject }) => (
-  <Card className="h-100 d-flex flex-column justify-content-center align-items-center">
-    <Card.Body className="text-center">
-      <Card.Header>
+const LostObjectItemDep = ({ lostObject, collection }) => {
+  // eslint-disable-next-line no-unused-vars
+  const removeItem = (docID) => {
+    console.log(`The item to remove is ${docID}`);
+    collection.remove(docID);
+  };
+
+  return (
+    <Card className="h-100">
+      <Card.Img className="object-image" src={lostObject.image} alt={lostObject.name} />
+      <Card.Body>
         <Card.Title>{lostObject.name}</Card.Title>
-        <Image src={lostObject.image} width={75} height={75} />
-        <Card.Subtitle>Date Found: {lostObject.dateFound}</Card.Subtitle>
-        <Card.Subtitle>Location Found: {lostObject.locationFound}</Card.Subtitle>
-        <Card.Subtitle>Current Location: {lostObject.currentDepartment}</Card.Subtitle>
-        <Row>
-          <Col>
-            <Link to={`/edit/${lostObject._id}`}>Edit</Link>
-            <Button variant="danger" size="sm" className="m-2"><Trash /></Button>
-          </Col>
-        </Row>
-      </Card.Header>
-    </Card.Body>
-  </Card>
-);
+        <Card.Subtitle>{lostObject.currentDepartment}</Card.Subtitle>
+        <Card.Text>
+          Date Found: {lostObject.dateFound}
+          <br />
+          Location Found: {lostObject.locationFound}
+        </Card.Text>
+        <button
+          type="button"
+          className="btn text-white"
+          data-bs-toggle="modal"
+          data-bs-target={lostObject._id}
+          style={{ backgroundColor: '#00502f', borderRadius: 60 }}
+        >
+          Read More
+        </button>
+        <a href={`/edit/${lostObject._id}`}>
+          <button
+            type="button"
+            className="btn btn-primary text-white mx-2"
+            data-bs-toggle="modal"
+            data-bs-target={lostObject._id}
+            style={{ borderRadius: 60 }}
+          >
+            Edit
+          </button>
+        </a>
+        <button
+          type="button"
+          className="btn btn-danger text-white"
+          data-bs-toggle="modal"
+          data-bs-target={lostObject._id}
+          style={{ borderRadius: 60 }}
+        >
+          Remove
+        </button>
+      </Card.Body>
+    </Card>
+  );
+};
 
+// Require a document to be passed to this component.
 LostObjectItemDep.propTypes = {
   lostObject: PropTypes.shape({
     name: PropTypes.string,
@@ -34,6 +65,8 @@ LostObjectItemDep.propTypes = {
     owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  collection: PropTypes.object.isRequired,
 };
 
 export default LostObjectItemDep;
