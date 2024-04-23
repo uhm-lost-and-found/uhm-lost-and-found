@@ -5,11 +5,12 @@ import { navBar } from './navbar.component';
 
 /* global fixture:false, test:false */
 
-/** Credentials for the sample users defined in settings.development.json. */
+// Define user credentials
 const departmentCredentials = { username: 'john@foo.com', password: 'changeme' };
 const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 
-fixture('meteor-application-template-react localhost test with default db')
+// Define the TestCafe fixture
+fixture('uhm-lost-and-found localhost test with default db')
   .page('http://localhost:3000');
 
 // Before each test, ensure the user is logged out
@@ -28,13 +29,8 @@ test('Test that HOME page shows up without being logged in', async (testControll
 // Test that LOST ITEMS page shows up without being logged in
 test('Test that LOST ITEMS page shows up without being logged in', async (testController) => {
   await testController.navigateTo('http://localhost:3000');
-
-  // Click the "LOST ITEMS" link
   await testController.click(Selector('a').withText('LOST ITEMS'));
-
-  // Wait for the "Lost Items" heading to be present or for the sign-in page to load
-  const lostItemsHeading = Selector('h2').withText('Lost Items');
-  await testController.expect(lostItemsHeading.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.expect(Selector('h2').withText('Lost Items').exists).ok({ timeout: 10000 });
 });
 
 // Test that SIGN IN and SIGN OUT work with a departmental account
@@ -48,13 +44,7 @@ test('Test that SIGN IN and SIGN OUT work with a departmental account', async (t
 test('Test that HOME page appears after signing in with a departmental account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
-
-  // Wait for the HOME page to load
-  const homeLink = Selector('a').withText('HOME');
-  await testController.expect(homeLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
-  await testController.click(homeLink);
-
-  // Ensure the HOME page is displayed
+  await testController.click(Selector('a').withText('HOME'));
   await landingPage.isDisplayed(testController);
 });
 
@@ -63,14 +53,14 @@ test('Test that LOST ITEMS page appears after signing in with a departmental acc
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
 
-  // Wait for the LOST ITEMS page to load
+  // Wait for the LOST ITEMS link to be clickable
   const lostItemsLink = Selector('a').withText('LOST ITEMS');
-  await testController.expect(lostItemsLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.expect(lostItemsLink.exists).ok({ timeout: 10000 });
   await testController.click(lostItemsLink);
 
-  // Ensure the LOST ITEMS page is displayed
+  // Wait for the "Lost Items" heading to be present
   const lostItemsHeading = Selector('h2').withText('Lost Items');
-  await testController.expect(lostItemsHeading.exists).ok();
+  await testController.expect(lostItemsHeading.exists).ok({ timeout: 10000 });
 });
 
 // Test that ADD ITEM page appears after signing in with a departmental account
@@ -78,8 +68,7 @@ test('Test that ADD ITEM page appears after signing in with a departmental accou
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
   await testController.click(Selector('a').withText('ADD ITEM'));
-  const addItemHeadingExists = await Selector('h2').withText('Add Item').exists;
-  await testController.expect(addItemHeadingExists).ok();
+  await testController.expect(Selector('h2').withText('Add Item').exists).ok();
 });
 
 // Test that EDIT ITEM page appears after signing in with a departmental account
@@ -87,8 +76,7 @@ test('Test that EDIT ITEM page appears after signing in with a departmental acco
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, departmentCredentials.username, departmentCredentials.password);
   await testController.click(Selector('a').withText('EDIT ITEM'));
-  const editItemHeadingExists = await Selector('h2').withText('Lost Items (Department)').exists;
-  await testController.expect(editItemHeadingExists).ok();
+  await testController.expect(Selector('h2').withText('Lost Items (Department)').exists).ok();
 });
 
 // Test that SIGN IN and SIGN OUT work with an admin account
@@ -102,13 +90,7 @@ test('Test that SIGN IN and SIGN OUT work with an admin account', async (testCon
 test('Test that HOME page appears after signing in with an admin account', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
-
-  // Wait for the HOME page to load
-  const homeLink = Selector('a').withText('HOME');
-  await testController.expect(homeLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
-  await testController.click(homeLink);
-
-  // Ensure the HOME page is displayed
+  await testController.click(Selector('a').withText('HOME'));
   await landingPage.isDisplayed(testController);
 });
 
@@ -117,14 +99,14 @@ test('Test that LOST ITEMS page appears after signing in with an admin account',
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
 
-  // Wait for the LOST ITEMS page to load
+  // Wait for the LOST ITEMS link to be clickable
   const lostItemsLink = Selector('a').withText('LOST ITEMS');
-  await testController.expect(lostItemsLink.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
+  await testController.expect(lostItemsLink.exists).ok({ timeout: 10000 });
   await testController.click(lostItemsLink);
 
-  // Ensure the LOST ITEMS page is displayed
+  // Wait for the "Lost Items" heading to be present
   const lostItemsHeading = Selector('h2').withText('Lost Items');
-  await testController.expect(lostItemsHeading.exists).ok();
+  await testController.expect(lostItemsHeading.exists).ok({ timeout: 10000 });
 });
 
 // Test that ADD ITEM page appears after signing in with an admin account
@@ -132,8 +114,7 @@ test('Test that ADD ITEM page appears after signing in with an admin account', a
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await testController.click(Selector('a').withText('ADD ITEM'));
-  const addItemHeadingExists = await Selector('h2').withText('Add Item').exists;
-  await testController.expect(addItemHeadingExists).ok();
+  await testController.expect(Selector('h2').withText('Add Item').exists).ok();
 });
 
 // Test that EDIT ITEM page appears after signing in with an admin account
@@ -141,8 +122,7 @@ test('Test that EDIT ITEM page appears after signing in with an admin account', 
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await testController.click(Selector('a').withText('EDIT ITEM'));
-  const editItemHeadingExists = await Selector('h2').withText('Lost Items (Admin)').exists;
-  await testController.expect(editItemHeadingExists).ok();
+  await testController.expect(Selector('h2').withText('Lost Items (Admin)').exists).ok();
 });
 
 // Test that DEPARTMENTS page appears after signing in with an admin account
@@ -150,8 +130,7 @@ test('Test that DEPARTMENTS page appears after signing in with an admin account'
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await testController.click(Selector('a').withText('DEPARTMENTS'));
-  const departmentsHeadingExists = await Selector('h2').withText('Page not found').exists;
-  await testController.expect(departmentsHeadingExists).ok();
+  await testController.expect(Selector('h2').withText('Page not found').exists).ok();
 });
 
 // Test that ADD DEPARTMENT page appears after signing in with an admin account
@@ -159,6 +138,5 @@ test('Test that ADD DEPARTMENT page appears after signing in with an admin accou
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await testController.click(Selector('a').withText('ADD DEPARTMENT'));
-  const addDepartmentHeadingExists = await Selector('h2').withText('Register Department').exists;
-  await testController.expect(addDepartmentHeadingExists).ok();
+  await testController.expect(Selector('h2').withText('Register Department').exists).ok();
 });

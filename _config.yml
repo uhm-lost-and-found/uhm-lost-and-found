@@ -1,8 +1,8 @@
-title: meteor-application-template-react
-description: A template for quickly starting Meteor application development
+title: uhm-lost-and-found
+description: A web application dedicated to posting lost and found items for the University of Hawaii Manoa campus.
 google_analytics:
 show_downloads: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 
 gems:
   - jekyll-mentions
