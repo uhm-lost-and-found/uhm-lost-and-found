@@ -18,4 +18,13 @@ if (Meteor.isServer) {
   });
 }
 
+if (Meteor.isServer) {
+  Meteor.publish('listDepartments', function () {
+    if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+      return Meteor.users.find({}, { fields: { emails: 1, username: 1 } });
+    }
+    return false;
+  });
+}
+
 export { addDepartment };

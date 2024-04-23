@@ -150,7 +150,7 @@ test('Test that DEPARTMENTS page appears after signing in with an admin account'
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await testController.click(Selector('a').withText('DEPARTMENTS'));
-  const departmentsHeadingExists = await Selector('h2').withText('Page not found').exists;
+  const departmentsHeadingExists = await Selector('h2').withText('Departments').exists;
   await testController.expect(departmentsHeadingExists).ok();
 });
 
