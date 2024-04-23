@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -22,19 +22,6 @@ const EditItem = () => {
       ready: rdy,
     };
   }, [_id]);
-
-  const [imagePreview, setImagePreview] = useState(doc?.image || '');
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagePreview(reader.result);
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
 
   const submit = (data) => {
     const { name, dateFound, locationFound, currentDepartment, owner, image } = data;
@@ -75,13 +62,10 @@ const EditItem = () => {
                       <TextField name="name" />
                       <TextField name="dateFound" type="date" label="Date Found" />
                       <TextField name="locationFound" label="Location Found" />
-                      <TextField name="currentDepartment" label="Current Department" />
+                      <TextField name="currentDepartment" label="Current Location" />
                     </Col>
                     <Col md={6}>
-                      <div>Image</div>
-                      {imagePreview && <img src={imagePreview} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
-                      <input type="file" accept="image/*" name="image" onChange={handleImageChange} />
-                      <div style={{ marginBottom: '24px' }} />
+                      <TextField name="image" label="Image URL" />
                       <TextField name="owner" disabled={!isAdmin && doc.owner !== Meteor.user().username} />
                     </Col>
                   </Row>

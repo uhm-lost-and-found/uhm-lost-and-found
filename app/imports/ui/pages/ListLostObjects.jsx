@@ -45,7 +45,7 @@ const ListLostObjects = () => {
       <Row className="justify-content-center">
         <Col>
           <div className="text-center">
-            <h2>Lost Items</h2>
+            <h2 style={{ color: 'white' }}>Lost Items</h2>
           </div>
           <Row xs={1} md={2} lg={3} className="g-3 mt-5">
             {lostObjects.map((lostObject) => (

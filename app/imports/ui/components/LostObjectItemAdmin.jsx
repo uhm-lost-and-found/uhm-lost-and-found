@@ -1,35 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Col, Image, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { Trash } from 'react-bootstrap-icons';
+import { Card } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItemAdmin = ({ lostObject, collection }) => {
+  // eslint-disable-next-line no-unused-vars
   const removeItem = (docID) => {
     console.log(`The item to remove is ${docID}`);
     collection.remove(docID);
   };
 
   return (
-    <Card className="h-100 d-flex flex-column justify-content-center align-items-center">
-      <Card.Body className="text-center">
-        <Card.Header>
-          <Card.Title>{lostObject.name}</Card.Title>
-          <Image src={lostObject.image} width={75} height={75} />
-          <Card.Subtitle>Date Found: {lostObject.dateFound}</Card.Subtitle>
-          <Card.Subtitle>Location Found: {lostObject.locationFound}</Card.Subtitle>
-          <Card.Subtitle>Current Location: {lostObject.currentDepartment}</Card.Subtitle>
-          <Row>
-            <footer className="blockquote-footer">{lostObject.owner}</footer>
-          </Row>
-          <Row>
-            <Col>
-              <Link to={`/edit/${lostObject._id}`}><Button>Edit</Button></Link>
-              <Button variant="danger" size="sm" className="m-2" onClick={() => removeItem(lostObject._id)}><Trash /></Button>
-            </Col>
-          </Row>
-        </Card.Header>
+    <Card className="h-100">
+      <Card.Img className="object-image" src={lostObject.image} alt={lostObject.name} />
+      <Card.Body>
+        <Card.Title>{lostObject.name}</Card.Title>
+        <Card.Subtitle>{lostObject.currentDepartment}</Card.Subtitle>
+        <Card.Text>
+          Date Found: {lostObject.dateFound}
+          <br />
+          Location Found: {lostObject.locationFound}
+        </Card.Text>
+        <button
+          type="button"
+          className="btn text-white"
+          data-bs-toggle="modal"
+          data-bs-target={lostObject._id}
+          style={{ backgroundColor: '#00502f', borderRadius: 60 }}
+        >
+          Read More
+        </button>
+        <a href={`/edit/${lostObject._id}`}>
+          <button
+            type="button"
+            className="btn btn-primary text-white mx-2"
+            data-bs-toggle="modal"
+            data-bs-target={lostObject._id}
+            style={{ borderRadius: 60 }}
+          >
+            Edit
+          </button>
+        </a>
+        <button
+          type="button"
+          className="btn btn-danger text-white"
+          data-bs-toggle="modal"
+          data-bs-target={lostObject._id}
+          style={{ borderRadius: 60 }}
+        >
+          Remove
+        </button>
       </Card.Body>
     </Card>
   );

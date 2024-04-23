@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
@@ -60,11 +60,6 @@ const SignIn = () => {
                     <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
                     <ErrorsField />
                     <SubmitField id="signin-form-submit" />
-                    <div style={{ textAlign: 'center', marginTop: '10px' }}>
-                      <Alert variant="light">
-                        <Link to="/signup">Click here to register.</Link>
-                      </Alert>
-                    </div>
                   </Card.Body>
                 </Card>
               </AutoForm>
