@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
+import DepartmentItem from '../components/DepartmentItem';
 
 const ListDepartments = () => {
   const { ready, departments } = useTracker(() => {
@@ -39,8 +40,8 @@ const ListDepartments = () => {
             </Col>
             <Row xs={1} md={2} lg={3} className="g-3">
               {departments.map((department) => (
-                <Col sm={12} md={6} lg={3} key={department._id}>
-                  <h4 style={{ color: 'white' }}>{department.username}</h4>
+                <Col sm={12} md={6} lg={4}>
+                  <DepartmentItem key={department._id} department={department} />
                 </Col>
               ))}
             </Row>

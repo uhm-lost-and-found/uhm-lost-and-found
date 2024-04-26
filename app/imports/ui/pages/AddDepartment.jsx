@@ -12,6 +12,7 @@ const AddDepartment = () => {
   const [success, setSuccess] = useState(false);
 
   const schema = new SimpleSchema({
+    username: String,
     email: String,
     password: String,
   });
@@ -59,6 +60,7 @@ const AddDepartment = () => {
                   <AutoForm schema={bridge} onSubmit={data => submit(data)}>
                     <Card>
                       <Card.Body>
+                        <TextField name="username" placeholder="Department name" />
                         <TextField name="email" placeholder="Department e-mail address" />
                         <TextField name="password" placeholder="Temp password" />
                         <ErrorsField />
