@@ -60,7 +60,7 @@ const EditItem = () => {
                   <Row>
                     <Col md={6}>
                       <TextField name="name" />
-                      <TextField name="dateFound" type="date" label="Date Found" />
+                      <TextField name="dateFound" label="Date Found" placeholder="DD/MM/YYYY" />
                       <TextField name="locationFound" label="Location Found" />
                       <TextField name="currentDepartment" label="Current Location" />
                     </Col>
