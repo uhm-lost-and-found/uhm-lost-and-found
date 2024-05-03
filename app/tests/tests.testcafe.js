@@ -398,8 +398,8 @@ test('Test that DEPARTMENTS page appears after signing in with an admin account 
   await testController.expect(accounts.count).gt(0); // Ensure at least one account is displayed
 });
 
-// Test that ADD DEPARTMENT page appears after signing in with an admin account and a department can be added
-test('Test that ADD DEPARTMENT page appears after signing in with an admin account and a department can be added', async (testController) => {
+// Test that ADD DEPARTMENT page appears after signing in with an admin account and departments can be added
+test('Test that ADD DEPARTMENT page appears after signing in with an admin account and departments can be added', async (testController) => {
   // Sign in with admin credentials
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
