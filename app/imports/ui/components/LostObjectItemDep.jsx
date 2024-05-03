@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Button, Card, Modal } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItemDep = ({ lostObject, collection }) => {
@@ -9,6 +9,11 @@ const LostObjectItemDep = ({ lostObject, collection }) => {
     console.log(`The item to remove is ${docID}`);
     collection.remove(docID);
   };
+
+  const [showModal, setShowModal] = React.useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   return (
     <Card className="h-100">
@@ -21,15 +26,13 @@ const LostObjectItemDep = ({ lostObject, collection }) => {
           <br />
           Location Found: {lostObject.locationFound}
         </Card.Text>
-        <button
-          type="button"
-          className="btn text-white"
-          data-bs-toggle="modal"
-          data-bs-target={lostObject._id}
-          style={{ backgroundColor: '#00502f', borderRadius: 60 }}
+        <Button
+          variant="primary"
+          onClick={handleShow}
+          style={{ backgroundColor: '#00502f', borderRadius: 60, border: 'none' }}
         >
           Read More
-        </button>
+        </Button>
         <a href={`/edit/${lostObject._id}`}>
           <button
             type="button"
@@ -51,6 +54,24 @@ const LostObjectItemDep = ({ lostObject, collection }) => {
         >
           Remove
         </button>
+
+        <Modal
+          show={showModal}
+          onHide={handleClose}
+          centered
+          scrollable
+          className="text-black"
+        >
+          <Modal.Header closeButton style={{ borderColor: '#282828', backgroundColor: '#282828' }}>
+            <Modal.Title>
+              <h6 style={{ color: 'd3d3d3' }}>{lostObject.name}</h6>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Example Text
+          </Modal.Body>
+        </Modal>
+
       </Card.Body>
     </Card>
   );
