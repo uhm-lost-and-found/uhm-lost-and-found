@@ -12,10 +12,9 @@ const DepartmentItem = ({ department }) => {
   return (
     <Card>
       <CardHeader className="text-center">
-        <h3>Account Info</h3>
+        <h3>{department.username}</h3>
       </CardHeader>
       <CardBody>
-        <p><strong>Department: </strong>{department.username}</p>
         <p><strong>Email: </strong>{department.emails[0].address}</p>
         <p><strong>Date Created: </strong>{department.createdAt.toLocaleDateString()}</p>
       </CardBody>
