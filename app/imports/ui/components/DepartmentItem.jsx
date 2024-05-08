@@ -32,6 +32,7 @@ const DepartmentItem = ({ department }) => {
         variant="danger"
         onClick={handleShow}
         style={{ borderRadius: 60, border: 'none' }}
+        className="mx-4 mb-3"
       >
         Delete Department Account
       </Button>
