@@ -394,8 +394,14 @@ test('Test that DEPARTMENTS page appears after signing in with an admin account 
   await testController.expect(departmentsHeading.exists).ok({ timeout: 15000 });
 
   // Check if accounts are displayed
-  const accounts = await Selector('h4').filter((node) => node.getAttribute('style') === 'color: white;');
+  const accounts = await Selector('.card');
   await testController.expect(accounts.count).gt(0); // Ensure at least one account is displayed
+
+  // Check if deletion function works
+  const deleteButton = Selector('.btn.btn-danger').withText('Delete Department Account').nth(1);
+  await testController.click(deleteButton);
+  const cancelButton = Selector('.btn.btn-secondary').withText('Cancel');
+  await testController.click(cancelButton);
 });
 
 // Test that ADD DEPARTMENT page appears after signing in with an admin account and departments can be added
@@ -410,6 +416,7 @@ test('Test that ADD DEPARTMENT page appears after signing in with an admin accou
   await testController.expect(addDepartmentHeadingExists).ok({ timeout: 15000 }); // Increased timeout
 
   // Fill out the form to add a department
+  await testController.typeText('input[name="username"]', 'Test');
   await testController.typeText('input[name="email"]', 'test@example.com');
   await testController.typeText('input[name="password"]', 'testpassword');
 
@@ -417,7 +424,7 @@ test('Test that ADD DEPARTMENT page appears after signing in with an admin accou
   await testController.click('input[type="submit"].btn.btn-primary');
 
   // Check if the specific error message for duplication is present
-  const duplicationErrorMessage = Selector('div.alert.alert-danger.show').withText('Username already exists.');
+  const duplicationErrorMessage = Selector('div.alert.alert-danger.show').withText('Username already exists.') || Selector('div.alert.alert-danger.show').withText('Email already exists.');
   if (await duplicationErrorMessage.exists) {
     // Ensure the specific error message for duplication is present
     await testController.expect(duplicationErrorMessage.exists).ok();
