@@ -26,10 +26,8 @@ Meteor.publish(LostObjects.departmentPublicationName, function () {
         // Admin user, publish all items
         return LostObjects.collection.find();
       }
-      if (Roles.userIsInRole(user._id, 'department')) {
-        // Departmental user, publish items belonging to their department
-        return LostObjects.collection.find({ currentDepartment: { $exists: true } });
-      }
+      // Non-admin user, publish only their own items
+      return LostObjects.collection.find({ owner: user.emails[0].address });
     }
   }
   return this.ready();
