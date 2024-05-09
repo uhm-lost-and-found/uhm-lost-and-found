@@ -116,7 +116,6 @@ client/
 
 imports/
   api/           # Define collections
-    stuff/       # The Stuffs collection definition
   startup/       # Define code to run when system starts up (client-only, server-only, both)
     client/
     server/
@@ -207,14 +206,6 @@ To provide a simple example of a "super power" for Admin users, the Admin page l
 ![](https://github.com/ics-software-engineering/meteor-application-template-react/raw/main/doc/admin-list-stuff-page.png)
 
 Note that non-admin users cannot get to this page, even if they type in the URL by hand.
-
-### Collections
-
-The application implements a single Collection called "Stuffs". Each Stuffs document has the following fields: name, quantity, condition, and username.
-
-The Stuffs collection is defined in [imports/api/stuff/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/main/app/imports/api/stuff/stuff.js).
-
-The Stuffs collection is initialized in [imports/startup/server/Mongo.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/main/app/imports/startup/server/Mongo.js).
 
 ### CSS
 

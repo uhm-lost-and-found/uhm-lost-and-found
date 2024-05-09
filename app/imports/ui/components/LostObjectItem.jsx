@@ -4,7 +4,6 @@ import { Card, Modal, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 
-/** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItem = ({ lostObject }) => {
   // eslint-disable-next-line no-unused-vars
   const { currentUser } = useTracker(() => ({
