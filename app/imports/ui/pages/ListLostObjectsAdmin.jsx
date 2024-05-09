@@ -42,12 +42,12 @@ const ListLostObjectsAdmin = () => {
           </Row>
         </Container>
       </div>
-      <Container style={{ minHeight: '100vh' }}>
+      <Container className="py-3" style={{ minHeight: '100vh' }}>
         <Row className="justify-content-center">
           <Col>
             <Row xs={1} md={2} lg={3} className="g-3 mt-5">
               {lostObjects.map((lostObject) => (
-                <Col sm={12} md={4} lg={3} key={lostObject._id} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+                <Col sm={12} md={4} lg={3} key={lostObject._id} className="my-2" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
                   <LostObjectItemAdmin lostObject={lostObject} collection={LostObjects.collection} />
                 </Col>
               ))}

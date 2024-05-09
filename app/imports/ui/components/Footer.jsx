@@ -40,14 +40,6 @@ const Footer = () => (
           </div>
 
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 className="text-uppercase fw-bold">Products Used</h6>
-            <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: 60, height: 2, backgroundColor: '#7c4dff' }} />
-            <p>
-              <a href="https://www.backendform.com/" rel="noopener noreferrer" target="_blank" className="text-white">backendform</a>
-            </p>
-          </div>
-
-          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <h6 className="text-uppercase fw-bold">Quick Links</h6>
             <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: 60, height: 2, backgroundColor: '#7c4dff' }} />
             <p>

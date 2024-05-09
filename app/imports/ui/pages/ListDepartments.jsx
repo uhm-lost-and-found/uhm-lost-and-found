@@ -42,10 +42,7 @@ const ListDepartments = () => {
           </Row>
         </Container>
       </div>
-      <Container
-        style={{
-          minHeight: '100vh',
-        }}>
+      <Container style={{ minHeight: '100vh' }}>
         <Row className="justify-content-center">
           <Col>
             <Row xs={1} md={2} lg={3} className="g-3 mt-5">

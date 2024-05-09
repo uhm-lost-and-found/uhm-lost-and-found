@@ -20,7 +20,7 @@ const NavBar = () => {
               <a href="/" className="ms-md-2">
                 <Image
                   src="https://manoa.hawaii.edu/wp/wp-content/uploads/2017/10/uhm-white-seal-nameplate@2x.png"
-                  height={45}
+                  height={70}
                 />
                 ,
               </a>

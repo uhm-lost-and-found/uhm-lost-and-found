@@ -42,8 +42,8 @@ const Landing = () => (
             <h1>How to Use</h1>
             <h4 className="lead fs-5 text-secondary">
               Welcome to our Lost and Found service! Utilize our platform&apos;s
-              &quot;Locate Lost Items&quot; button to search for misplaced 
-              belongings. Our user-friendly interface ensures a seamless experience, 
+              &quot;Locate Lost Items&quot; button to search for misplaced
+              belongings. Our user-friendly interface ensures a seamless experience,
               making it easier for you to find what you&apos;re looking for.
             </h4>
           </Col>
