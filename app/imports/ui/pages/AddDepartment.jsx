@@ -20,6 +20,7 @@ const AddDepartment = () => {
 
   const submit = (doc) => {
     Meteor.call(addDepartment, doc, (err) => {
+      console.log(`addDepartment method called with ${doc}`);
       if (err) {
         setError(err.reason);
       } else {
