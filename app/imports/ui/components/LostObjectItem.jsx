@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, Modal, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
+import CampusMap from '../pages/CampusMap';
 
 const LostObjectItem = ({ lostObject }) => {
   // eslint-disable-next-line no-unused-vars
@@ -47,6 +48,7 @@ const LostObjectItem = ({ lostObject }) => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <CampusMap />
             Example Text
           </Modal.Body>
         </Modal>
