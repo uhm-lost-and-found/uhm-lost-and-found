@@ -66,7 +66,7 @@ const Landing = () => (
           </Col>
           <Col md={1} />
           <Col md={6}>
-            <img className="img-fluid" src="" alt="Technologies" />
+            <Image className="img-fluid rounded shadow" src="./images/catalog.png" alt="Catalog" />
           </Col>
         </Row>
       </Container>

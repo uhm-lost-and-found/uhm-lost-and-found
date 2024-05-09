@@ -13,12 +13,12 @@ const NavBar = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: "#00502f" }}>
+      <div style={{ backgroundColor: '#00502f' }}>
         <Container className="py-3">
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center justify-content-md-start mb-md-0">
-              <a href="./" className="ms-md-2">
-                <img
+              <a href="/" className="ms-md-2">
+                <Image
                   src="https://manoa.hawaii.edu/wp/wp-content/uploads/2017/10/uhm-white-seal-nameplate@2x.png"
                   height={45}
                 />
@@ -27,7 +27,7 @@ const NavBar = () => {
           </div>
         </Container>
       </div>
-      <Navbar expand="lg border-bottom py-3" style={{ backgroundColor: "white"}}>
+      <Navbar expand="lg border-bottom py-3" style={{ backgroundColor: 'white' }}>
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav ">

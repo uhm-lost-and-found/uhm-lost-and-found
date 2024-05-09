@@ -63,7 +63,7 @@ const Footer = () => (
             <h6 className="text-uppercase fw-bold">Contact</h6>
             <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: 60, backgroundColor: "#7c4dff" }} />
             <p><i class="bi bi-house-fill"></i> 2500 Campus Road</p>
-            <p>Honolulu, HI 96822</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; Honolulu, HI 96822</p>
             <p><i class="bi bi-envelope-fill"></i> lostandfound@hawaii.edu</p>
           </div>
         </div>
