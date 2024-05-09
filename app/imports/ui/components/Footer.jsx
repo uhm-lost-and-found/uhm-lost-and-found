@@ -4,8 +4,8 @@ import { Image } from 'react-bootstrap';
 const Footer = () => (
   <footer className="text-center text-lg-start text-white mt-auto" style={{ backgroundColor: "#1c2331" }}>
     <section className="d-flex justify-content-between p-3" style={{ backgroundColor: "#00502f" }}>
-      <div className="me-5  ">
-        <span>Feet</span>
+      <div className="me-5" style={{ height: 25 }}>
+        
       </div>
       {/* <div>
           <a href="" class="text-white me-4">
