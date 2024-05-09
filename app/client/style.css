@@ -59,6 +59,7 @@ body .navbar {
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  transition: all 0.2s;
 }
 
 .action-btn:hover {
@@ -118,4 +119,16 @@ body .navbar {
 .object-image {
   height: 100%;
   object-fit: cover;
+}
+
+.ex-button {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-size: 24px;
+  border: 2px solid white;
+  padding: 14px 50px;
+  border-radius: 50px;
+  transition: all 0.2s;
+  box-shadow: 0px 0.5rem 1rem rgba(0,0,0,0.15);
 }

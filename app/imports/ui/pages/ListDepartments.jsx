@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import DepartmentItem from '../components/DepartmentItem';
@@ -17,30 +17,39 @@ const ListDepartments = () => {
   }, []);
 
   return (ready ? (
-    <div style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
-      <img
-        src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg"
-        alt="Background"
+    <>
+      <div className="div position-relative pb-5 text-white border-bottom shadow">
+        <Image
+          className="img-fluid"
+          src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg"
+          alt="Banner"
+          style={{
+            width: '100vw',
+            maxHeight: '100%',
+            minHeight: '100%',
+            filter: 'brightness(0.5)',
+            position: 'absolute',
+            zIndex: -1,
+            objectFit: 'cover',
+          }}
+        />
+        <Container id="landing-page" data-aos="fade-up" data-aos-duration="2000">
+          <Row className="align-middle text-center mt-5">
+            <Col>
+              <h1 style={{ fontSize: '150px', fontWeight: 600 }}>Departments</h1>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <Container
         style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          filter: 'brightness(0.6)',
-          position: 'fixed',
-          zIndex: -1,
-          top: 0,
-          left: 0,
-        }}
-      />
-      <Container className="py-3">
+          minHeight: '100vh',
+        }}>
         <Row className="justify-content-center">
           <Col>
-            <Col className="text-center">
-              <h2 style={{ color: 'white' }}>Departments</h2>
-            </Col>
-            <Row xs={1} md={2} lg={3} className="g-3">
+            <Row xs={1} md={2} lg={3} className="g-3 mt-5">
               {departments.map((department) => (
-                <Col sm={12} md={6} lg={4}>
+                <Col sm={12} md={6} lg={4} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
                   <DepartmentItem key={department._id} department={department} />
                 </Col>
               ))}
@@ -48,7 +57,7 @@ const ListDepartments = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </>
   ) : <LoadingSpinner />);
 };
 

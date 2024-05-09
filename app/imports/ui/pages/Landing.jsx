@@ -35,17 +35,16 @@ const Landing = () => (
       <Container className="my-5" data-aos="fade-in" data-aos-duration="2000" data-aos-once="true">
         <Row className="align-items-center">
           <Col xs={12} md={6} className="text-center">
-            <Image src="" />
+            <p className="ex-button">Locate Lost Items</p>
           </Col>
           <Col md={1} />
           <Col xs={12} md={5}>
             <h1>How to Use</h1>
             <h4 className="lead fs-5 text-secondary">
               Welcome to our Lost and Found service! Utilize our platform&apos;s
-              intuitive &quot;Locate Lost Items&quot; feature to swiftly search for
-              misplaced belongings. Our user-friendly interface ensures a
-              seamless experience, making it easier for you to find what
-              you&apos;re looking for.
+              &quot;Locate Lost Items&quot; button to search for misplaced 
+              belongings. Our user-friendly interface ensures a seamless experience, 
+              making it easier for you to find what you&apos;re looking for.
             </h4>
           </Col>
         </Row>

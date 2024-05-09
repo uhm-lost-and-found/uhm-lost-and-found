@@ -57,7 +57,7 @@ const ListLostObjects = () => {
           <Col>
             <Row xs={1} md={2} lg={3} className="g-3 mt-5">
               {lostObjects.map((lostObject) => (
-                <Col sm={6} md={4} lg={3} key={lostObject._id} data-aos="fade-up" data-aos-duration="2000">
+                <Col sm={6} md={4} lg={3} key={lostObject._id} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
                   <LostObjectItem lostObject={lostObject} collection={LostObjects.collection} />
                 </Col>
               ))}

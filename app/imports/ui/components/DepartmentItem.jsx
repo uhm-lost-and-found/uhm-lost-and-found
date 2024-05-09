@@ -19,7 +19,7 @@ const DepartmentItem = ({ department }) => {
   };
 
   return (
-    <Card>
+    <Card className="shadow">
       <CardHeader className="text-center">
         <h3>{department.username}</h3>
       </CardHeader>
