@@ -22,6 +22,7 @@ const NavBar = () => {
                   src="https://manoa.hawaii.edu/wp/wp-content/uploads/2017/10/uhm-white-seal-nameplate@2x.png"
                   height={45}
                 />
+                ,
               </a>
             </div>
           </div>
