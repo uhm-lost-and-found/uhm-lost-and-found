@@ -398,7 +398,7 @@ test('Test that DEPARTMENTS page appears after signing in with an admin account 
   await testController.expect(accounts.count).gt(0); // Ensure at least one account is displayed
 
   // Check if deletion function works
-  const deleteButton = Selector('.btn.btn-danger').withText('Delete Department Account').nth(1);
+  const deleteButton = Selector('.btn.btn-danger').withText('Delete Department Account').nth(0);
   await testController.click(deleteButton);
   const cancelButton = Selector('.btn.btn-secondary').withText('Cancel');
   await testController.click(cancelButton);
@@ -424,7 +424,7 @@ test('Test that ADD DEPARTMENT page appears after signing in with an admin accou
   await testController.click('input[type="submit"].btn.btn-primary');
 
   // Check if the specific error message for duplication is present
-  const duplicationErrorMessage = Selector('div.alert.alert-danger.show').withText('Username already exists.') || Selector('div.alert.alert-danger.show').withText('Email already exists.');
+  const duplicationErrorMessage = Selector('.alert-heading.h4').withText('Registration was not successful');
   if (await duplicationErrorMessage.exists) {
     // Ensure the specific error message for duplication is present
     await testController.expect(duplicationErrorMessage.exists).ok();

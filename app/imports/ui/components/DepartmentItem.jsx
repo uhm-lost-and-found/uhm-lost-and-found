@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
+import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Card, CardHeader, CardBody, Button, Modal } from 'react-bootstrap';
+import { deleteDepartment } from '../../startup/both/Methods';
 
 /** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const DepartmentItem = ({ department }) => {
 
   const [showModal, setShowModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showFailureModal, setShowFailureModal] = useState(false);
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-  const handleDeleteClose = () => setShowDeleteModal(false);
-  const handleDeleteShow = () => setShowDeleteModal(true);
+  const handleFailureClose = () => setShowFailureModal(false);
+  const handleFailureShow = () => setShowFailureModal(true);
 
-  const removeItem = (docID) => {
+  const removeItem = (userID) => {
     handleClose();
-    handleDeleteShow();
-    console.log(`The item to remove is ${docID}`);
+    console.log(`The account to remove is ${userID}`);
+    Meteor.call(deleteDepartment, userID, (err, result) => {
+      if (err) {
+        console.log(err.reason);
+      }
+      if (!result) {
+        handleFailureShow();
+      }
+    });
   };
 
   return (
@@ -62,23 +71,23 @@ const DepartmentItem = ({ department }) => {
         </Modal.Footer>
       </Modal>
       <Modal
-        show={showDeleteModal}
-        onHide={handleDeleteClose}
+        show={showFailureModal}
+        onHide={handleFailureClose}
         centered
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header style={{ borderColor: '#282828', backgroundColor: '#198754' }}>
+        <Modal.Header style={{ borderColor: '#282828', backgroundColor: '#DC3545' }}>
           <Modal.Title>
-            <h1 style={{ color: 'white' }}>Success</h1>
+            <h1 style={{ color: 'white' }}>Failure</h1>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h5>Successfully Deleted Department Account: {department.username}</h5>
+          <h5>You cannot delete your own account bruh</h5>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" style={{ borderRadius: 60, border: 'none' }} onClick={handleDeleteClose}>
-            Close
+          <Button variant="secondary" style={{ borderRadius: 60, border: 'none' }} onClick={handleFailureClose}>
+            My Bad
           </Button>
         </Modal.Footer>
       </Modal>
