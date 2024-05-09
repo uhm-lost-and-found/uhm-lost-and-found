@@ -30,7 +30,7 @@ const EditItem = () => {
     ));
   };
 
-  const isAdmin = Meteor.user()?.role === 'admin';
+  const isAdmin = Meteor.user()?.emails[0].address === 'admin@foo.com';
 
   return ready && doc ? (
     <div style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}>
@@ -66,7 +66,7 @@ const EditItem = () => {
                     </Col>
                     <Col md={6}>
                       <TextField name="image" label="Image URL" />
-                      <TextField name="owner" disabled={!isAdmin && doc.owner !== Meteor.user().username} />
+                      <TextField name="owner" disabled={!isAdmin} />
                     </Col>
                   </Row>
                   <SubmitField value="Submit" />

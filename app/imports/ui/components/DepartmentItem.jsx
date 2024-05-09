@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Card, CardHeader, CardBody, Button, Modal } from 'react-bootstrap';
 import { deleteDepartment } from '../../startup/both/Methods';
 
-/** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const DepartmentItem = ({ department }) => {
 
   const [showModal, setShowModal] = useState(false);
