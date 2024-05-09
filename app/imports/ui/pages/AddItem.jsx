@@ -25,7 +25,7 @@ const AddItem = () => {
 
   const submit = (data, formRef) => {
     const { name, dateFound, locationFound, currentDepartment, image } = data;
-    const owner = Meteor.user().username;
+    const owner = Meteor.user().emails[0].address;
     LostObjects.collection.insert(
       { name, dateFound, locationFound, currentDepartment, image, owner },
       (error) => {
