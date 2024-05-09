@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Modal } from 'react-bootstrap';
+import CampusMap from '../pages/CampusMap';
 
 const LostObjectItemDep = ({ lostObject, collection }) => {
   // eslint-disable-next-line no-unused-vars
@@ -67,6 +68,7 @@ const LostObjectItemDep = ({ lostObject, collection }) => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <CampusMap />
             Example Text
           </Modal.Body>
         </Modal>
