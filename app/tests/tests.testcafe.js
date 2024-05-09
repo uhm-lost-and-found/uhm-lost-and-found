@@ -6,7 +6,18 @@ import { navBar } from './navbar.component';
 /* global fixture:false, test:false */
 
 /** Credentials for the sample users defined in settings.development.json. */
-const departmentCredentials = { username: 'john@foo.com', password: 'changeme' };
+const departmentCredentials = [
+  { username: 'john@foo.com', password: 'changeme' },
+  { username: 'bilger@foo.com', password: 'changeme' },
+  { username: 'keller@foo.com', password: 'changeme' },
+  { username: 'kuykendall@foo.com', password: 'changeme' },
+  { username: 'hamilton@foo.com', password: 'changeme' },
+  { username: 'post@foo.com', password: 'changeme' },
+  { username: 'wrc@foo.com', password: 'changeme' },
+  { username: 'webster@foo.com', password: 'changeme' },
+  { username: 'john@foo.com', password: 'changeme' },
+];
+
 const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 
 fixture('uhm-lost-and-found localhost test with default db')
