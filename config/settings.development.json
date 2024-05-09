@@ -1,7 +1,14 @@
 {
   "defaultAccounts": [
     { "username": "Admin", "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "username": "Temp", "email": "john@foo.com", "password": "changeme", "role": "department" }
+    { "username": "Temp", "email": "john@foo.com", "password": "changeme", "role": "department" },
+    { "username": "Bilger Hall", "email": "bilger@foo.com", "password": "changeme", "role": "department" },
+    { "username": "Keller Hall", "email": "keller@foo.com", "password": "changeme", "role": "department" },
+    { "username": "Kuykendall Hall", "email": "kuykendall@foo.com", "password": "changeme", "role": "department" },
+    { "username": "Hamilton Library", "email": "hamilton@foo.com", "password": "changeme", "role": "department" },
+    { "username": "Warrior Recreation Center", "email": "wrc@foo.com", "password": "changeme", "role": "department" },
+    { "username": "POST", "email": "post@foo.com", "password": "changeme", "role": "department" },
+    { "username": "Webster Hall", "email": "webster@foo.com", "password": "changeme", "role": "department" }
   ],
 
   "defaultData": [
@@ -12,9 +19,9 @@
   ],
 
   "defaultLostObjects": [
-    { "name":  "Airpods", "dateFound": "10/10/2011", "locationFound": "Paradise Palms", "currentDepartment": "POST", "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1551489688005", "owner": "john@foo.com" },
-    { "name": "Nike Shoes", "dateFound": "06/12/2012", "locationFound": "Webster Hall", "currentDepartment": "Webster Hall", "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e4060b19-289e-43b4-8375-c047c1cf6ab6/air-max-pulse-mens-shoes-DWTVpN.png","owner": "john@foo.com" },
-    { "name": "Wallet", "dateFound": "12/02/2014", "locationFound": "Shidler Hall", "currentDepartment": "Bookstore", "image": "https://cdn11.bigcommerce.com/s-z6agnrtx29/images/stencil/1280x1280/products/575/3025/rachel-cruze-cash-envelope-wallet-camel__50885__58968.1699630602.jpg?c=1", "owner": "admin@foo.com"},
+    { "name":  "Airpods", "dateFound": "10/10/2011", "locationFound": "Paradise Palms", "currentDepartment": "POST", "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1551489688005", "owner": "post@foo.com" },
+    { "name": "Nike Shoes", "dateFound": "06/12/2012", "locationFound": "Webster Hall", "currentDepartment": "Webster Hall", "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e4060b19-289e-43b4-8375-c047c1cf6ab6/air-max-pulse-mens-shoes-DWTVpN.png","owner": "webster@foo.com" },
+    { "name": "Wallet", "dateFound": "12/02/2014", "locationFound": "Shidler Hall", "currentDepartment": "Hamilton Library", "image": "https://cdn11.bigcommerce.com/s-z6agnrtx29/images/stencil/1280x1280/products/575/3025/rachel-cruze-cash-envelope-wallet-camel__50885__58968.1699630602.jpg?c=1", "owner": "hamilton@foo.com"},
     { "name": "Hydro Flask", "dateFound": "02/18/2023", "locationFound": "Keller Hall", "currentDepartment": "Bilger Hall", "image": "https://performancerunning.com/cdn/shop/products/4e9d67f8w32bts-eggplant.jpg?v=1675116652&width=1200", "owner": "bilger@foo.com"},
     { "name": "Hoodie", "dateFound": "01/27/2024", "locationFound": "Campus Center", "currentDepartment": "Kuykendall Hall", "image": "https://static.pullandbear.net/2/photos//2024/V/0/2/p/7592/513/501/7592513501_2_6_8.jpg?t=1689153111522&imwidth=1125", "owner": "kuykendall@foo.com"},
     { "name": "Duffle Bag", "dateFound": "03/09/2024", "locationFound": "Warrior Recreation Center", "currentDepartment": "Warrior Recreation Center", "image": "https://theiwacompany.com/cdn/shop/files/516F50D0-AEEF-4055-ADF8-CB24D766966D_1_105_c.jpg?v=1698719766", "owner": "wrc@foo.com"},
@@ -24,7 +31,7 @@
     { "name": "Keys", "dateFound": "06/19/2023", "locationFound": "Zone 20 Parking Structure", "currentDepartment": "Bilger Hall", "image": "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2008/11/14/keys460x276.jpg?width=465&dpr=1&s=none", "owner": "bilger@foo.com"},
     { "name": "Samsung S Pen", "dateFound": "05/02/2023", "locationFound": "Kuykendall Hall", "currentDepartment": "Kuykendall Hall", "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6562/6562492_sd.jpg;maxHeight=640;maxWidth=550", "owner": "kuykendall@foo.com"},
     { "name": "Yoga mat", "dateFound": "01/13/2024", "locationFound": "Campus Center", "currentDepartment": "Warrior Recreation Center", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzkNNcLrCGBsTTCFfnQFzh1ywKnX0lo8bmqvFd-PGSNA&s", "owner": "wrc@foo.com"},
-    { "name": "Yet tumbler", "dateFound": "04/01/2024", "locationFound": "Campus Center 2nd floor", "currentDepartment": "Warrior Recreation Center", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYQRUdEI-jim4rL7PH-LJNlGjHxG6kcML31A&s", "owner": "wrc@foo.com"},
+    { "name": "Yeti tumbler", "dateFound": "04/01/2024", "locationFound": "Campus Center 2nd floor", "currentDepartment": "Warrior Recreation Center", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYQRUdEI-jim4rL7PH-LJNlGjHxG6kcML31A&s", "owner": "wrc@foo.com"},
     { "name": "Hat", "dateFound": "03/06/2024", "locationFound": "Warrior Recreation Center", "currentDepartment": "Warrior Recreation Center", "image": "https://www.bookstore.hawaii.edu/manoa/outerweb/product_images/HATUAHORANGEBILLBASEBALLl.png", "owner": "wrc@foo.com"},
     { "name": "Sweatshirt", "dateFound": "01/22/2024", "locationFound": "Warrior Recreation Center", "currentDepartment": "Warrior Recreation Center", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdgFiE6J2iHb6IXSmInvcZtH1RLMXqrFUisWzcAMx2zw&s", "owner": "wrc@foo.com"},
     { "name": "Sunglasses", "dateFound": "02/06/2024", "locationFound": "Bookstore", "currentDepartment": "Warrior Recreation Center", "image": "https://www.villain.in/cdn/shop/products/villain-sunglasses-2-2-183.jpg?v=1639652561", "owner": "wrc@foo.com"},
@@ -51,7 +58,7 @@
     { "name": "Bracelet", "dateFound": "11/25/2022", "locationFound": "Paradise Palms Cafe", "currentDepartment": "POST", "image": "https://4.imimg.com/data4/RB/NB/MY-10573698/stylish-and-trendy-women-s-bracelet-500x500.jpg", "owner": "post@foo.com"},
     { "name": "USB C to HDMI Adapter", "dateFound": "11/05/2022", "locationFound": "between Keller and Bilger", "currentDepartment": "Keller Hall", "image": "https://m.media-amazon.com/images/I/51I0DpppkJL._AC_UF894,1000_QL80_.jpg", "owner": "keller@foo.com"},
     { "name": "Small pouch", "dateFound": "09/29/2022", "locationFound": "Keller Hall rm 403", "currentDepartment": "Keller Hall", "image": "https://shopthecottage.com/cdn/shop/files/6_5c787d6c-d321-46ea-a890-eec793c138d0_1080x1080.png?v=1706384063", "owner": "keller@foo.com"},
-    { "name": "AirPods case", "dateFound": "02/18/2024", "locationFound": "Campus Center", "Starbucks (Campus Center)": "Keller Hall", "image": "https://m.media-amazon.com/images/I/51F7cBRi0qL._AC_UF894,1000_QL80_.jpg", "owner": "keller@foo.com"},
+    { "name": "AirPods case", "dateFound": "02/18/2024", "locationFound": "Campus Center", "currentDepartment": "Starbucks (Campus Center)", "image": "https://m.media-amazon.com/images/I/51F7cBRi0qL._AC_UF894,1000_QL80_.jpg", "owner": "keller@foo.com"},
     { "name": "Cannon lens cap", "dateFound": "10/19/2022", "locationFound": "Kennedy Theatre", "currentDepartment": "Keller Hall", "image": "https://img.ws.mms.shopee.ph/edd8939e740a8dc548d6869b2384c871", "owner": "keller@foo.com"},
     { "name": "Book", "dateFound": "07/12/2021", "locationFound": "Keller Hall", "currentDepartment": "Keller Hall", "image": "https://is1-ssl.mzstatic.com/image/thumb/Publication122/v4/85/70/2f/85702f34-2982-e2ee-d883-b5ffc3ae0897/9781101658055.d.jpg/1200x630wz.png", "owner": "keller@foo.com"},
     { "name": "Earrings", "dateFound": "06/22/2020", "locationFound": "Campus Center courtyard", "currentDepartment": "Kuykendall Hall", "image": "https://cdn.shopify.com/s/files/1/0568/9520/9636/files/1a.jpg?v=1705642662&width=1500", "owner": "kuykendall@foo.com"},
