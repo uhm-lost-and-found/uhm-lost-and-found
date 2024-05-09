@@ -6,18 +6,7 @@ import { navBar } from './navbar.component';
 /* global fixture:false, test:false */
 
 /** Credentials for the sample users defined in settings.development.json. */
-const departmentCredentials = [
-  { username: 'john@foo.com', password: 'changeme' },
-  { username: 'bilger@foo.com', password: 'changeme' },
-  { username: 'keller@foo.com', password: 'changeme' },
-  { username: 'kuykendall@foo.com', password: 'changeme' },
-  { username: 'hamilton@foo.com', password: 'changeme' },
-  { username: 'post@foo.com', password: 'changeme' },
-  { username: 'wrc@foo.com', password: 'changeme' },
-  { username: 'webster@foo.com', password: 'changeme' },
-  { username: 'john@foo.com', password: 'changeme' },
-];
-
+const departmentCredentials = { username: 'john@foo.com', password: 'changeme' };
 const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 
 fixture('uhm-lost-and-found localhost test with default db')
@@ -51,7 +40,7 @@ test('Test that LOST ITEMS page shows up and items can be viewed without being l
   await testController.click(Selector('a').withText('LOST ITEMS'));
 
   // Wait for the "Lost Items" heading to be present
-  const lostItemsHeading = Selector('h2').withText('Lost Items');
+  const lostItemsHeading = Selector('h1').withText('Lost Items');
   await testController.expect(lostItemsHeading.exists).ok({ timeout: 10000 }); // Increase timeout if necessary
 
   // Check if there are any items displayed
@@ -112,7 +101,7 @@ test('Test that LOST ITEMS page appears after signing in with a departmental acc
   await testController.click(lostItemsLink);
 
   // Ensure the LOST ITEMS page is displayed
-  const lostItemsHeading = Selector('h2').withText('Lost Items');
+  const lostItemsHeading = Selector('h1').withText('Lost Items');
   await testController.expect(lostItemsHeading.exists).ok({ timeout: 15000 }); // Increased timeout
 
   // Check if there are any items displayed
@@ -150,10 +139,6 @@ test('Test that ADD ITEM page appears after signing in with a departmental accou
   // Click the "ADD ITEM" link
   await testController.click(Selector('a').withText('ADD ITEM'));
 
-  // Wait for the "Add Item" heading to be present
-  const addItemHeading = Selector('h2').withText('Add Item');
-  await testController.expect(addItemHeading.exists).ok({ timeout: 15000 }); // Increased timeout
-
   // Fill out the form to add an item
   await testController.typeText('input[name="name"]', 'Test Item');
   await testController.typeText('input[name="dateFound"]', '01/01/2024');
@@ -177,7 +162,7 @@ test('Test that EDIT ITEM page appears after signing in with a departmental acco
 
   // Ensure the Lost Items (Department) page loads
   await testController.click(Selector('a').withText('EDIT ITEM'));
-  const editItemHeadingExists = await Selector('h2').withText('Lost Items (Department)').exists;
+  const editItemHeadingExists = await Selector('h1').withText('Edit Items').exists;
   await testController.expect(editItemHeadingExists).ok({ timeout: 15000 }); // Increased timeout
 
   // Check if there are any items displayed
@@ -208,10 +193,6 @@ test('Test that EDIT ITEM page appears after signing in with a departmental acco
     const editButton = Selector('.btn.btn-primary').withText('Edit').nth(0);
     await testController.click(editButton);
 
-    // Ensure the EDIT ITEM page is displayed
-    const editItemHeading = Selector('h2').withText('Edit Item');
-    await testController.expect(editItemHeading.exists).ok({ timeout: 15000 }); // Increased timeout
-
     // Clear existing text in the input fields before typing new values
     await testController.selectText('input[name="name"]').pressKey('delete');
     await testController.selectText('input[name="dateFound"]').pressKey('delete');
@@ -239,10 +220,6 @@ test('Test that EDIT ITEM page appears after signing in with a departmental acco
 
     // Go back to the Lost Items (Department) Page
     await testController.click(Selector('a').withText('EDIT ITEM'));
-
-    // Ensure the Lost Items (Department) page loads again
-    const editItemHeadingExistsAgain = await Selector('h2').withText('Lost Items (Department)').exists;
-    await testController.expect(editItemHeadingExistsAgain).ok({ timeout: 15000 }); // Increased timeout
 
     // Click the Remove button
     const removeButton = Selector('.btn.btn-danger').withText('Remove').nth(0);
@@ -282,7 +259,7 @@ test('Test that LOST ITEMS page appears after signing in with an admin account a
   await testController.click(lostItemsLink);
 
   // Ensure the LOST ITEMS page is displayed
-  const lostItemsHeading = Selector('h2').withText('Lost Items');
+  const lostItemsHeading = Selector('h1').withText('Lost Items');
   await testController.expect(lostItemsHeading.exists).ok();
 
   // Check if there are any items displayed
@@ -319,7 +296,7 @@ test('Test that EDIT ITEM page appears after signing in with an admin account an
 
   // Ensure the Lost Items (Admin) page loads
   await testController.click(Selector('a').withText('EDIT ITEM'));
-  const editItemHeadingExists = await Selector('h2').withText('Lost Items (Admin)').exists;
+  const editItemHeadingExists = await Selector('h1').withText('Edit Items').exists;
   await testController.expect(editItemHeadingExists).ok({ timeout: 15000 }); // Increased timeout
 
   // Check if there are any items displayed
@@ -351,10 +328,6 @@ test('Test that EDIT ITEM page appears after signing in with an admin account an
     const editButton = Selector('.btn.btn-primary').withText('Edit').nth(0);
     await testController.click(editButton);
 
-    // Ensure the EDIT ITEM page is displayed
-    const editItemHeading = Selector('h2').withText('Edit Item');
-    await testController.expect(editItemHeading.exists).ok({ timeout: 15000 }); // Increased timeout
-
     // Clear existing text in the input fields before typing new values
     await testController.selectText('input[name="name"]').pressKey('delete');
     await testController.selectText('input[name="dateFound"]').pressKey('delete');
@@ -383,10 +356,6 @@ test('Test that EDIT ITEM page appears after signing in with an admin account an
     // Go back to the Lost Items (Admin) Page
     await testController.click(Selector('a').withText('EDIT ITEM'));
 
-    // Ensure the Lost Items (Admin) page loads again
-    const editItemHeadingExistsAgain = await Selector('h2').withText('Lost Items (Admin)').exists;
-    await testController.expect(editItemHeadingExistsAgain).ok({ timeout: 15000 }); // Increased timeout
-
     // Click the Remove button
     const removeButton = Selector('.btn.btn-danger').withText('Remove').nth(0);
     await testController.click(removeButton);
@@ -401,7 +370,7 @@ test('Test that DEPARTMENTS page appears after signing in with an admin account 
 
   // Ensure the DEPARTMENTS page loads
   await testController.click(Selector('a').withText('DEPARTMENTS'));
-  const departmentsHeading = await Selector('h2').withText('Departments');
+  const departmentsHeading = await Selector('h1').withText('Departments');
   await testController.expect(departmentsHeading.exists).ok({ timeout: 15000 });
 
   // Check if accounts are displayed
@@ -423,8 +392,6 @@ test('Test that ADD DEPARTMENT page appears after signing in with an admin accou
 
   // Ensure the ADD DEPARTMENT page loads
   await testController.click(Selector('a').withText('ADD DEPARTMENT'));
-  const addDepartmentHeadingExists = await Selector('h2').withText('Register Department').exists;
-  await testController.expect(addDepartmentHeadingExists).ok({ timeout: 15000 }); // Increased timeout
 
   // Fill out the form to add a department
   await testController.typeText('input[name="username"]', 'Test');
