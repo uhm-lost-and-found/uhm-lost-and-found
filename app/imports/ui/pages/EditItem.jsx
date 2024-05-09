@@ -34,20 +34,6 @@ const EditItem = () => {
 
   return ready && doc ? (
     <div style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}>
-      <img
-        src="https://manoa.hawaii.edu/library/wp-content/uploads/2017/10/Sunny-Alcove.jpg"
-        alt="Background"
-        style={{
-          width: '100%',
-          height: '100vh',
-          objectFit: 'cover',
-          filter: 'brightness(0.6)',
-          position: 'fixed',
-          zIndex: -1,
-          top: 0,
-          left: 0,
-        }}
-      />
       <Container fluid className="py-3">
         <Row className="justify-content-center">
           <Col xs={8}>

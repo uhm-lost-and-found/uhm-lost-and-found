@@ -16,7 +16,7 @@ const LostObjectItem = ({ lostObject }) => {
   const handleShow = () => setShowModal(true);
 
   return (
-    <Card className="h-100">
+    <Card className="h-100 shadow">
       <Card.Img className="object-image" src={lostObject.image} alt={lostObject.name} />
       <Card.Body>
         <Card.Title>{lostObject.name}</Card.Title>

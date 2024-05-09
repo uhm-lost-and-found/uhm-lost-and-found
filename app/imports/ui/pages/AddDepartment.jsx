@@ -39,19 +39,6 @@ const AddDepartment = () => {
       {!success ? (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <div style={{ flex: '1 0 auto', position: 'relative', overflow: 'hidden' }}>
-            <img
-              src="images/login-bg.jpeg"
-              alt="Background"
-              style={{
-                width: '100%',
-                height: '100vh',
-                objectFit: 'cover',
-                position: 'fixed',
-                zIndex: -1,
-                top: 0,
-                left: 0,
-              }}
-            />
             <Container id="signup-page" className="py-3" fluid style={{ paddingTop: '50px', paddingBottom: '50px' }}>
               <Row className="justify-content-center">
                 <Col xs={5} className="mt-2">
@@ -59,7 +46,7 @@ const AddDepartment = () => {
                     <h2 style={{ color: 'white' }}>Register Department</h2>
                   </Col>
                   <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-                    <Card>
+                    <Card className="shadow" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
                       <Card.Body>
                         <TextField name="username" placeholder="Department name" />
                         <TextField name="email" placeholder="Department e-mail address" />

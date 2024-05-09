@@ -8,23 +8,10 @@ const SignOut = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div style={{ flex: '1 0 auto', position: 'relative', overflow: 'hidden' }}>
-        <img
-          src="images/login-bg.jpeg"
-          alt="Background"
-          style={{
-            width: '100%',
-            height: '100vh',
-            objectFit: 'cover',
-            position: 'fixed',
-            zIndex: -1,
-            top: 0,
-            left: 0,
-          }}
-        />
-        <Container id="signout-page" className="py-3" fluid style={{ marginTop: '200px', marginBottom: '200px' }}>
+        <Container id="signout-page" className="py-3" fluid style={{ marginTop: '200px', marginBottom: '200px' }} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
           <Row className="justify-content-center align-items-center">
             <Col className="text-center py-3">
-              <h2 style={{ color: 'white' }}>You are signed out.</h2>
+              <h2 className="lead fs-1">You are signed out.</h2>
             </Col>
           </Row>
         </Container>

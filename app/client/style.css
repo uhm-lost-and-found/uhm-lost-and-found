@@ -7,7 +7,7 @@ body, html {
 
 :root {
   --matr-navbar-bg: transparent;
-  --matr-navbar-text-color: white;
+  --matr-navbar-text-color: black;
   --matr-navbar-text-color1: rgb(164, 164, 164);
 }
 
@@ -32,7 +32,7 @@ body .navbar {
 }
 
 .navbar-nav .nav-link {
-  color: white;
+  color: black;
 }
 
 .nav-link::after {
@@ -58,13 +58,14 @@ body .navbar {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
-  width: 203px;
   text-align: center;
+  transition: all 0.2s;
 }
 
 .action-btn:hover {
-  scale: 1.05;
+  scale: 1.01;
   color: white;
+  box-shadow: 0px 0.5rem 1rem rgba(0,0,0,0.15);
 }
 
 .action-btn:active {
@@ -81,7 +82,7 @@ body .navbar {
   transition: all 0.2s;
   height: 2px;
   width: 100%;
-  background-color: white;
+  background-color: black;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -99,13 +100,13 @@ body .navbar {
   border: 2px solid white;
   padding: 14px 50px;
   border-radius: 50px;
-  margin-top: 20px;
   transition: all 0.2s;
 }
 
 #home-button:hover {
   background-color: white;
   color: black;
+  box-shadow: 0px 0.5rem 1rem rgba(0,0,0,0.15);
 }
 
 .footer {
@@ -113,10 +114,21 @@ body .navbar {
   background-color: black;
   color: white;
   width: 100%;
-  position: relative;
 }
 
 .object-image {
   height: 100%;
   object-fit: cover;
+}
+
+.ex-button {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-size: 24px;
+  border: 2px solid white;
+  padding: 14px 50px;
+  border-radius: 50px;
+  transition: all 0.2s;
+  box-shadow: 0px 0.5rem 1rem rgba(0,0,0,0.15);
 }
