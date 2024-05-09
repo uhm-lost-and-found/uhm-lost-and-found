@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Roles } from 'meteor/alanning:roles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import DepartmentItem from '../components/DepartmentItem';
 
@@ -9,7 +10,7 @@ const ListDepartments = () => {
   const { ready, departments } = useTracker(() => {
     const subscription = Meteor.subscribe('listDepartments');
     const rdy = subscription.ready();
-    const departmentsItems = Meteor.users.find({}).fetch();
+    const departmentsItems = Meteor.users.find({}).fetch().filter(department => Roles.userIsInRole(department._id, 'department'));
     return {
       departments: departmentsItems,
       ready: rdy,
