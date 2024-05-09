@@ -8,8 +8,6 @@ import LostObjectItemDep from '../components/LostObjectItemDep';
 
 /* Renders a table containing all of the object documents. Use <ObjectItem> to render each row. */
 const ListLostObjectsDep = () => {
-  // Get the signed-in user's name
-  const userName = Meteor.user() ? Meteor.user().username : '';
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, lostObjects } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -46,7 +44,7 @@ const ListLostObjectsDep = () => {
         <Row className="justify-content-center">
           <Col>
             <Col className="text-center">
-              <h2 style={{ color: 'white' }}>Lost Items ({userName})</h2>
+              <h2 style={{ color: 'white' }}>Lost Items (Department)</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-3">
               {lostObjects.map((lostObject) => (
