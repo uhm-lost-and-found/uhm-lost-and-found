@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Modal } from 'react-bootstrap';
 
-/** Renders a single row in the List Stuff table. See pages/ListItems.jsx. */
 const LostObjectItemDep = ({ lostObject, collection }) => {
   // eslint-disable-next-line no-unused-vars
   const removeItem = (docID) => {
